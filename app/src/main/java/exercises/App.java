@@ -1,6 +1,8 @@
-import exercises.logic.Age;
-import java.util.Scanner;
+package exercises;
 
+
+import java.util.Scanner;
+import exercises.logic.Age;
 
 public class App {
     
@@ -16,10 +18,12 @@ public class App {
             case "1":
                 System.out.println("Você escolheu o exercicio 1...");
                 Age idade = new Age();
+                idade.VerifyingAge();
                 break;
         
             default:
                 break;
         }
+        sExercise.close();
     }
 }

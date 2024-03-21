@@ -2,21 +2,19 @@ package exercises.logic;
 import java.util.Scanner;
 
 public class Age {
-    private String name;
-    private int age;
-
-    public Age() {
-        Scanner myS = new Scanner(System.in);
+        Scanner myS = new Scanner(System.in);    
+        String name;        
+        int age;
+    public void VerifyingAge() {
         name = getName(myS);
         age = getAge(myS, name);
         myS.close();
-        
         String msgAdult = AgeVerify(age) == true ? "maior" : "menor";
         String.format("Olá %s, você possui %d anos. \nPortanto você é %s de idade.", name, age, msgAdult);
     }
     
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
-    private String Name(Scanner myS) {
+    private String getName(Scanner myS) {
          System.out.println("Olá, qual seu nome?");
 
          String n = myS.nextLine();
@@ -24,7 +22,7 @@ public class Age {
     }
 
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
-    private int Age(Scanner myS, String name) {
+    private int getAge(Scanner myS, String name) {
         System.out.printf("Olá %s, qual a sua idade? \n", name);
 
         int a = myS.nextInt();
