@@ -24,9 +24,9 @@ public class App {
             case "2":
                 System.out.println("Você escolheu o exercicio Product...");
                 ProductExercise produto = new ProductExercise();
-                produto.choice();
+                produto.productArray();
                 break;
-                
+
             default:
                 System.out.println("Esse não é um exercicio válido.");
                 break;
