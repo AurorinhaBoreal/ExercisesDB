@@ -26,6 +26,7 @@ public class App {
                 ProductExercise produto = new ProductExercise();
                 produto.choice();
                 break;
+                
             default:
                 System.out.println("Esse não é um exercicio válido.");
                 break;
