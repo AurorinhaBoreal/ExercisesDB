@@ -10,7 +10,7 @@ public class AgeExercise {
         age = getAge(myS, name);
         myS.close();
         String msgAdult = AgeVerify(age) == true ? "maior" : "menor";
-        String.format("Olá %s, você possui %d anos. \nPortanto você é %s de idade.", name, age, msgAdult);
+        System.out.println(String.format("Olá %s, você possui %d anos. \nPortanto você é %s de idade.", name, age, msgAdult));
     }
     
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
@@ -32,11 +32,9 @@ public class AgeExercise {
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
     private boolean AgeVerify(int age) {
         if (age >= 18) {
-            System.out.println("Você tem mais de 18 anos.");
             return true;
         }
         else {
-            System.out.println("Você tem menos de 18 anos.");
             return false;
         }
     }
