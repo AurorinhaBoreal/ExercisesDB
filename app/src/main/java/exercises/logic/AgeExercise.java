@@ -1,7 +1,7 @@
 package exercises.logic;
 import java.util.Scanner;
 
-public class Age {
+public class AgeExercise {
         Scanner myS = new Scanner(System.in);    
         String name;        
         int age;
@@ -17,21 +17,27 @@ public class Age {
     private String getName(Scanner myS) {
          System.out.println("Olá, qual seu nome?");
 
-         String n = myS.nextLine();
-         return n;
+         String setName = myS.nextLine();
+         return setName;
     }
 
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
     private int getAge(Scanner myS, String name) {
         System.out.printf("Olá %s, qual a sua idade? \n", name);
 
-        int a = myS.nextInt();
-        return a;
+        int setAge = myS.nextInt();
+        return setAge;
     }
 
     // Como os métodos são utilizados apenas nessa classe, não tem necessidade de torna-los públicos
     private boolean AgeVerify(int age) {
-        if (age >= 18) return true;
-        else return false;
+        if (age >= 18) {
+            System.out.println("Você tem mais de 18 anos.");
+            return true;
+        }
+        else {
+            System.out.println("Você tem menos de 18 anos.");
+            return false;
+        }
     }
 }
