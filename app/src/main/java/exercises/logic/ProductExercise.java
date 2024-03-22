@@ -56,24 +56,14 @@ public class ProductExercise {
 
         System.out.println("Quantas unidades deseja comprar?");
         int quantityProduct = scanner.nextInt();
+        
+        // Captura o próximo espaço que é lançado ao final do scanner.nextInt
+        // Dessa forma, não vai permitir que o scanner.nextLine capture 
+        // o espaço como String vazia
+        scanner.nextLine();
 
-        calcPrice(scanner, chosenProduct, quantityProduct);
-
-        System.out.println("Compra Finalizada!");
-       
-    }
-
-    private void calcPrice(Scanner scanner, int chosenProduct, int quantityProduct) {
-        double discountPercentage;
-        double totalPrice;
+        double totalPrice = calcPrice(chosenProduct, quantityProduct);
         String purchaseConfirmation;
-
-        if (quantityProduct > 10) discountPercentage = 10;
-        else if (quantityProduct > 20) discountPercentage = 20;
-        else discountPercentage = 50;
-
-        double priceProduct = products.get(chosenProduct).price;
-        totalPrice = (quantityProduct * priceProduct) * ((100 - discountPercentage)/100);
 
         System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%.2f", quantityProduct, products.get(chosenProduct).name, totalPrice));
         System.out.println("Confirma sua compra? S/N");
@@ -84,14 +74,29 @@ public class ProductExercise {
             System.out.println("Compra finalizada!");
         }
         else if (purchaseConfirmation.equals("N"))  {
-            System.out.println("Compra Cancelada. \nVoltando para o Ínicio...");
-            choice();
+            System.out.println("Compra Cancelada.");
         }
+       
+        System.out.println("Voltando para o Ínicio...");
+        choice();
+    }
+
+    private double calcPrice(int chosenProduct, int quantityProduct) {
+        double discountPercentage;
+        double totalPrice;
+
+        if (quantityProduct > 10) discountPercentage = 10;
+        else if (quantityProduct > 20) discountPercentage = 20;
+        else discountPercentage = 25;
+
+        double priceProduct = products.get(chosenProduct).price;
+        totalPrice = (quantityProduct * priceProduct) * ((100 - discountPercentage)/100);
+
+        return totalPrice;
     } 
 
-
     private void addProduct() {
-
+        
     }
 
     public class Product {
