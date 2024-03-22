@@ -2,8 +2,7 @@ package exercises;
 
 
 import java.util.Scanner;
-import exercises.logic.AgeExercise;
-import exercises.logic.ProductExercise;
+import exercises.logic.*;
 
 public class App {
     
@@ -12,7 +11,7 @@ public class App {
         Scanner sExercise = new Scanner(System.in);
 
         System.out.println("Escolha o exercicio que deseja executar:");
-        System.out.printf("1 - Age \t 2 - Product");
+        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo");
 
         exercise = sExercise.nextLine();
         switch (exercise) {
@@ -26,7 +25,11 @@ public class App {
                 ProductExercise produto = new ProductExercise();
                 produto.productArray();
                 break;
-
+            case "3":
+                System.out.println("Você escolheu o exercicio Jokenpo...");
+                Jokenpo jokenpo = new Jokenpo();
+                jokenpo.game();
+                break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
                 break;
