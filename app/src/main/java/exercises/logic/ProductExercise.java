@@ -8,7 +8,6 @@ public class ProductExercise {
     
     ArrayList<Product> products = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-    Scanner scannerConfirmation = new Scanner(System.in);
 
     public void productArray() {
         products.add(new Product(1, "Batata", 20f));
@@ -66,7 +65,7 @@ public class ProductExercise {
         System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%.2f", quantityProduct, products.get(chosenProduct).name, totalPrice));
         System.out.println("Confirma sua compra? S/N");
 
-        purchaseConfirmation = scannerConfirmation.nextLine();
+        purchaseConfirmation = scanner.nextLine();
 
         if (purchaseConfirmation.equals("S")) {
             System.out.println("Compra finalizada!");
