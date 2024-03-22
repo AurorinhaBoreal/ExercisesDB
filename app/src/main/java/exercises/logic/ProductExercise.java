@@ -8,6 +8,7 @@ public class ProductExercise {
     
     ArrayList<Product> products = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    Scanner scannerConfirmation = new Scanner(System.in);
 
     public void productArray() {
         products.add(new Product(1, "Batata", 20f));
@@ -56,19 +57,16 @@ public class ProductExercise {
 
         System.out.println("Quantas unidades deseja comprar?");
         int quantityProduct = scanner.nextInt();
-        
         // Captura o próximo espaço que é lançado ao final do scanner.nextInt
-        // Dessa forma, não vai permitir que o scanner.nextLine capture 
+        // Dessa forma, não vai permitir que o scanner.nextLine capture
         // o espaço como String vazia
-        scanner.nextLine();
-
         double totalPrice = calcPrice(chosenProduct, quantityProduct);
         String purchaseConfirmation;
 
         System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%.2f", quantityProduct, products.get(chosenProduct).name, totalPrice));
         System.out.println("Confirma sua compra? S/N");
 
-        purchaseConfirmation = scanner.nextLine();
+        purchaseConfirmation = scannerConfirmation.nextLine();
 
         if (purchaseConfirmation.equals("S")) {
             System.out.println("Compra finalizada!");
@@ -85,9 +83,13 @@ public class ProductExercise {
         double discountPercentage;
         double totalPrice;
 
-        if (quantityProduct > 10) discountPercentage = 10;
-        else if (quantityProduct > 20) discountPercentage = 20;
-        else discountPercentage = 25;
+        if (quantityProduct > 50) {
+            discountPercentage = 25;
+        } else if (quantityProduct > 20) {
+            discountPercentage = 20;
+        } else if (quantityProduct > 10) {
+            discountPercentage = 10;
+        } else discountPercentage = 0;
 
         double priceProduct = products.get(chosenProduct).price;
         totalPrice = (quantityProduct * priceProduct) * ((100 - discountPercentage)/100);
@@ -96,7 +98,32 @@ public class ProductExercise {
     } 
 
     private void addProduct() {
-        
+        int numberProducts;
+        System.out.println("Quantos produtos deseja adicionar?");
+
+        numberProducts = scanner.nextInt();
+        scanner.nextLine();
+
+        for (int i = 0; i < numberProducts; i++) {
+            int productID;
+            String productName;
+            float productPrice;
+
+            productID = (products.size()+1);
+
+            System.out.println("Informe o nome do Produto:");
+            productName = scanner.nextLine();
+
+            System.out.println("Informe o preço do Produto:");
+            productPrice = scanner.nextFloat();
+            // Pegando o \n do nextFloat
+            scanner.nextLine();
+
+            products.add(new Product(productID, productName, productPrice));
+        }
+
+        System.out.println("Produtos Adicionados. \n Voltando para o Inicio...");
+        choice();
     }
 
     public class Product {
