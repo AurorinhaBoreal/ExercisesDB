@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Jokenpo {
+public class JokenpoExercise {
     ArrayList<String> playerHand = new ArrayList<>();
     ArrayList<String> computerHand = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
