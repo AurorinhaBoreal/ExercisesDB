@@ -50,46 +50,45 @@ public class ProductExercise {
         try {
             System.out.println(products.get(chosenProduct));
         } catch (Exception e) {
-            System.err.println("O ID do Produto é inválido! \nVoltando para o ínicio...");
+            System.err.println(String.format("O ID %d é inválido! \nVoltando para o ínicio...", chosenProduct));
             choice();
         }
 
         System.out.println("Quantas unidades deseja comprar?");
         int quantityProduct = scanner.nextInt();
 
-        calcPrice(chosenProduct, quantityProduct);
+        calcPrice(scanner, chosenProduct, quantityProduct);
 
         System.out.println("Compra Finalizada!");
        
     }
 
-    private void calcPrice(int chosenProduct, int quantityProduct) {
-        int discountPercentage;
-        float totalPrice;
+    private void calcPrice(Scanner scanner, int chosenProduct, int quantityProduct) {
+        double discountPercentage;
+        double totalPrice;
+        String purchaseConfirmation;
 
         if (quantityProduct > 10) discountPercentage = 10;
         else if (quantityProduct > 20) discountPercentage = 20;
         else discountPercentage = 50;
 
-        float priceProduct = products.get(chosenProduct).price;
+        double priceProduct = products.get(chosenProduct).price;
         totalPrice = (quantityProduct * priceProduct) * ((100 - discountPercentage)/100);
-        System.out.println( ((100 - discountPercentage)/100));
 
-        System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%e", quantityProduct, products.get(chosenProduct).name, totalPrice));
+        System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%.2f", quantityProduct, products.get(chosenProduct).name, totalPrice));
         System.out.println("Confirma sua compra? S/N");
 
-        String purchaseConfirmation = scanner.nextLine();
+        purchaseConfirmation = scanner.nextLine();
 
-        if (purchaseConfirmation == "S") System.out.println("Compra finalizada!");
-        else if (purchaseConfirmation == "N")  {
+        if (purchaseConfirmation.equals("S")) {
+            System.out.println("Compra finalizada!");
+        }
+        else if (purchaseConfirmation.equals("N"))  {
             System.out.println("Compra Cancelada. \nVoltando para o Ínicio...");
             choice();
         }
-        else {
-            System.out.println("Respota Inválida. Cancelando e voltando ao Ínicio..."); 
-            choice();
-        }
-    }
+    } 
+
 
     private void addProduct() {
 
