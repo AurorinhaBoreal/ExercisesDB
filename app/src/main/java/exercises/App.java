@@ -14,7 +14,7 @@ public class App {
         System.out.println("Escolha o exercicio que deseja executar:");
         System.out.println("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora");
         System.out.println("5 - Tabuada \t 6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura");
-        System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array");
+        System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array \t 12 - Mesclagem de Arrays");
         System.out.println("");
         exercise = sExercise.nextInt();
         switch (exercise) {
@@ -72,6 +72,11 @@ public class App {
                 System.out.println("Você escolheu o exercicio de Organizaçao de Array...");
                 RandomArrayExercise array = new RandomArrayExercise();
                 array.Array();
+                break;
+            case 12:
+                System.out.println("Você escolheu o exercicio de Organizaçao de Dois Arrays...");
+                TwoArraysExercise twoArrays = new TwoArraysExercise();
+                twoArrays.mergeArrays();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
