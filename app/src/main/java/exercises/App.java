@@ -11,7 +11,7 @@ public class App {
         Scanner sExercise = new Scanner(System.in);
 
         System.out.println("Escolha o exercicio que deseja executar:");
-        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo");
+        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo \t 4 - Calculadora");
 
         exercise = sExercise.nextInt();
         switch (exercise) {
@@ -34,6 +34,7 @@ public class App {
                 System.out.println("Você escolheu o exercicio Calculadora...");
                 CalculatorExercise calculator = new CalculatorExercise();
                 calculator.chooseCalc();
+                break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
                 break;
