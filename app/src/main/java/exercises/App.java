@@ -2,6 +2,9 @@ package exercises;
 
 
 import java.util.Scanner;
+
+import javax.sound.midi.Soundbank;
+
 import exercises.logic.*;
 
 public class App {
@@ -34,6 +37,12 @@ public class App {
                 System.out.println("Você escolheu o exercicio Calculadora...");
                 CalculatorExercise calculator = new CalculatorExercise();
                 calculator.chooseCalc();
+                break;
+            case 5:
+                System.out.println("Você escolheu o exercicio Tabuada...");
+                break;
+            case 6:
+                System.out.println("Você escolheu o exercicio Números Aleatórios...");
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
