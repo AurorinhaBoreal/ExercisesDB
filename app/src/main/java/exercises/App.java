@@ -13,7 +13,7 @@ public class App {
 
         System.out.println("Escolha o exercicio que deseja executar:");
         System.out.printf("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora \t 5 - Tabuada\n");
-    System.out.println("6 - Numeros Aleatórios");
+    System.out.println("6 - Numeros Aleatórios \t 7 - Fibonacci");
 
         exercise = sExercise.nextInt();
         switch (exercise) {
@@ -46,6 +46,11 @@ public class App {
                 System.out.println("Você escolheu o exercicio Números Aleatórios...");
                 RandomExercise random = new RandomExercise();
                 random.randomNumbers();
+                break;
+            case 7:
+                System.out.println("Você escolheu o exercicio Fibonacci,,,");
+                FibonacciExercise fibonacci = new FibonacciExercise();
+                fibonacci.FibonacciCalculation();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
