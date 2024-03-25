@@ -56,15 +56,17 @@ public class ProductExercise {
 
         System.out.println("Quantas unidades deseja comprar?");
         int quantityProduct = scanner.nextInt();
-        // Captura o próximo espaço que é lançado ao final do scanner.nextInt
-        // Dessa forma, não vai permitir que o scanner.nextLine capture
-        // o espaço como String vazia
+        
         double totalPrice = calcPrice(chosenProduct, quantityProduct);
         String purchaseConfirmation;
 
         System.out.println(String.format("Comprando %d unidades do item %s, o valor total será R$%.2f", quantityProduct, products.get(chosenProduct).name, totalPrice));
         System.out.println("Confirma sua compra? S/N");
-
+        
+        // Captura o próximo espaço que é lançado ao final do scanner.nextInt
+        // Dessa forma, não vai permitir que o scanner.nextLine capture
+        // o espaço como String vazia
+        scanner.nextLine();
         purchaseConfirmation = scanner.nextLine();
 
         if (purchaseConfirmation.equals("S")) {
@@ -134,14 +136,6 @@ public class ProductExercise {
             this.productID = productID;
             this.name = name;
             this.price = price;
-        }
-        public String getProduct() {
-            return "O produto "+this.name+" custa R$"+this.price;
-        }
-
-        public void setProduct(String newName, float newPrice) {
-            this.name = newName;
-            this.price = newPrice;
         }
 
         @Override
