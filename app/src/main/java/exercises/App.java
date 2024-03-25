@@ -3,8 +3,6 @@ package exercises;
 
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
-
 import exercises.logic.*;
 
 public class App {
@@ -14,7 +12,7 @@ public class App {
         Scanner sExercise = new Scanner(System.in);
 
         System.out.println("Escolha o exercicio que deseja executar:");
-        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo \t 4 - Calculadora");
+        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo \t 4 - Calculadora \t 5 - Tabuada");
 
         exercise = sExercise.nextInt();
         switch (exercise) {
@@ -40,6 +38,8 @@ public class App {
                 break;
             case 5:
                 System.out.println("Você escolheu o exercicio Tabuada...");
+                MultiplicationExercise multiplication = new MultiplicationExercise();
+                multiplication.choosingNumber();
                 break;
             case 6:
                 System.out.println("Você escolheu o exercicio Números Aleatórios...");
