@@ -8,7 +8,7 @@ public class FibonacciExercise {
     int fibonacciEnd;
     public void FibonacciCalculation() {
         getEnd();
-        System.out.printf("A sequência de Fibonacci até o número"+fibonacciEnd+"é a seguinte: \n[ 0");
+        System.out.printf("A sequência de Fibonacci com "+fibonacciEnd+" números é a seguinte: \n[ 0");
         calculatingSequence();
     }
 
