@@ -12,7 +12,6 @@ public class MultiplicationExercise {
         multiplicand = scanner.nextInt();
         Multiplication(multiplicand);
         CreatingTable(results, multiplicand);
-        // calcAgain();
     }
 
     private void Multiplication(int multiplicand) {
