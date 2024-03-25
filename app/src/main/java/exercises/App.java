@@ -12,7 +12,8 @@ public class App {
         Scanner sExercise = new Scanner(System.in);
 
         System.out.println("Escolha o exercicio que deseja executar:");
-        System.out.printf("1 - Age \t 2 - Product \t 3 - Jokenpo \t 4 - Calculadora \t 5 - Tabuada");
+        System.out.printf("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora \t 5 - Tabuada\n");
+    System.out.println("6 - Numeros Aleatórios");
 
         exercise = sExercise.nextInt();
         switch (exercise) {
@@ -43,6 +44,8 @@ public class App {
                 break;
             case 6:
                 System.out.println("Você escolheu o exercicio Números Aleatórios...");
+                RandomExercise random = new RandomExercise();
+                random.randomNumbers();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
