@@ -15,7 +15,7 @@ public class JokenpoExercise {
     public void game() {
         System.out.println("Bem-Vinde! Gostaria de jogar Pedra, Papel, Tesoura? S/N");
 
-        String wannaPlay = scanner.nextLine();
+        String wannaPlay = scanner.nextLine().toUpperCase();
 
         if (wannaPlay.equals("S")) {
             play();
@@ -27,32 +27,32 @@ public class JokenpoExercise {
     }
 
     private void play() {
-        char player;
+        String player;
         playerHand.clear();
         char computer;
         computerHand.clear();
         System.out.println("Escolha entre Pedra (P), Papel (A) ou Tesoura (T):");
 
         // Pegando o primeiro caractere que aparece para podermos utilizar char
-        player = scanner.next().charAt(0);
+        player = scanner.next().toUpperCase();
         computer = choices[random.nextInt(3)].charAt(0);
 
         // Artes ASCII Possiveis
-        if (player == 'P') {
+        if (player.equals("P")) {
             playerHand.add("    _______  ");
             playerHand.add("---'   ____) ");
             playerHand.add("      (_____)");
             playerHand.add("      (_____)");
             playerHand.add("      (____) ");
             playerHand.add("---.__(___)  ");
-        } else if (player == 'A') {
+        } else if (player.equals("A")) {
             playerHand.add("     _______      ");
             playerHand.add("---'    ____)____ ");
             playerHand.add("           ______)");
             playerHand.add("          _______)");
             playerHand.add("         _______) ");
             playerHand.add(" ---.__________)  ");
-        } else if (player == 'T') {
+        } else if (player.equals("T")) {
             playerHand.add("    _______      ");
             playerHand.add("---'   ____)___ _");
             playerHand.add("          ______)");
@@ -99,7 +99,7 @@ public class JokenpoExercise {
 
         // Capturando linha vazia
         scanner.nextLine();
-        String playAgain = scanner.nextLine();
+        String playAgain = scanner.nextLine().toUpperCase();
 
         if (playAgain.equals("S")) {
             play();
@@ -112,28 +112,16 @@ public class JokenpoExercise {
         }
     }
 
-    private String gameLogic(char player, char computer, int[] score) {
+    private String gameLogic(String player, char computer, int[] score) {
         String[] possibleResults = {"Parabéns! Você ganhou a rodada!", "Ihh, Empatou!", "Você perdeu pro Java!"};
         String result;
 
-        if (player == 'P' && computer == 'P') {
+        if (player.charAt(0) == computer) {
             result = possibleResults[1];
-        } else if (player == 'P' && computer == 'A') {
-            result = possibleResults[2];
-        } else if (player == 'P' && computer == 'T') {
-            result = possibleResults[0];
-        } else if (player == 'A' && computer == 'P') {
-            result = possibleResults[0];
-        } else if (player == 'A' && computer == 'A') {
-            result = possibleResults[1];
-        } else if (player == 'A' && computer == 'T') {
-            result = possibleResults[2];
-        } else if (player == 'T' && computer == 'P') {
-            result = possibleResults[2];
-        } else if (player == 'T' && computer == 'A') {
-            result = possibleResults[0];
+        } else if (player.equals("P")) {
+            result = computer == 'T' ? possibleResults[0] : possibleResults[2];
         } else {
-            result = possibleResults[1];
+            result = computer == 'A' ? possibleResults[0] : possibleResults[2];
         }
         
         if (result.equals("Parabéns! Você ganhou a rodada!")) {
