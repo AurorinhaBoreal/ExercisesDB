@@ -13,8 +13,9 @@ public class App {
 
         System.out.println("Escolha o exercicio que deseja executar:");
         System.out.printf("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora \t 5 - Tabuada\n");
-        System.out.println("6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura \t 9 - Limite de Fibonacci");
-
+        System.out.println("6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura \t 9 - Limite de Fibonacci \t 10 - Soma de Matriz");
+        System.out.println("");
+        System.out.println("");
         exercise = sExercise.nextInt();
         switch (exercise) {
             case 1:
@@ -61,6 +62,11 @@ public class App {
                 System.out.println("Você escolheu o exercicio Limite de Fibonacci...");
                 FibonacciLimitExercise fibonacciLimit = new FibonacciLimitExercise();
                 fibonacciLimit.FibonacciCalculation();
+                break;
+            case 10:
+                System.out.println("Você escolheu o exercicio Soma de Matriz...");
+                MatrixSumExercise matrix = new MatrixSumExercise();
+                matrix.Matrix();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
