@@ -3,7 +3,7 @@ package exercises.logic;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// EU VOU REFATORAR!! PROMETO MATHEUS!!!
+// REFATORAR CASO SOBRE TEMPO
 public class ProductExercise {
     
     ArrayList<Product> products = new ArrayList<>();
