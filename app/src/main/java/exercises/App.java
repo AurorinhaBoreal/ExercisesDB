@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import exercises.arrays.*;
 import exercises.logic.*;
+import exercises.methods.SecondsConversionExercise;
 import exercises.methods.StudentExercise;
 import exercises.repetitionStructures.*;
 
@@ -17,8 +18,9 @@ public class App {
         System.out.println("Escolha o exercicio que deseja executar:");
         System.out.println("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora");
         System.out.println("5 - Tabuada \t 6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura");
-        System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array \t 12 - Mesclagem de Arrays");
-        System.out.println("13 - Media do Aluno");
+        System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array");
+        System.out.println("12 - Mesclagem de Arrays \t 13 - Media do Aluno \t 14 - Conversão");
+        System.out.println("");
         exercise = sExercise.nextInt();
         switch (exercise) {
             case 1:
@@ -85,6 +87,11 @@ public class App {
                 System.out.println("Você escolheu o exercicio de Media do Aluno...");
                 StudentExercise student = new StudentExercise();
                 student.studentInfo();
+                break;
+            case 14:
+                System.out.println("Você escolheu o exercicio de Conversão de Segundos...");
+                SecondsConversionExercise seconds = new SecondsConversionExercise();
+                seconds.getSeconds();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
