@@ -3,7 +3,9 @@ package exercises;
 
 import java.util.Scanner;
 
+import exercises.arrays.*;
 import exercises.logic.*;
+import exercises.repetitionStructures.*;
 
 public class App {
     
