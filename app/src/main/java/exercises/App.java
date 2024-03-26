@@ -6,6 +6,7 @@ import java.util.Scanner;
 import exercises.arrays.*;
 import exercises.logic.*;
 import exercises.methods.SecondsConversionExercise;
+import exercises.methods.StaticCalculatorExercise;
 import exercises.methods.StudentExercise;
 import exercises.repetitionStructures.*;
 
@@ -84,14 +85,18 @@ public class App {
                 twoArrays.mergeArrays();
                 break;
             case 13:
-                System.out.println("Você escolheu o exercicio de Media do Aluno...");
+                System.out.println("Você escolheu o exercicio Media do Aluno...");
                 StudentExercise student = new StudentExercise();
                 student.studentInfo();
                 break;
             case 14:
-                System.out.println("Você escolheu o exercicio de Conversão de Segundos...");
+                System.out.println("Você escolheu o exercicio Conversão de Segundos...");
                 SecondsConversionExercise seconds = new SecondsConversionExercise();
                 seconds.getSeconds();
+                break;
+            case 15:
+                System.out.println("Você escolheu o exercicio Calculadora Estática...");
+                StaticCalculatorExercise.chooseCalc();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
