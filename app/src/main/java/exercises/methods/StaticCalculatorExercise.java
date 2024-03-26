@@ -3,6 +3,13 @@ package exercises.methods;
 import java.util.Scanner;
 
 // VOLTAR E REVISAR MÉTODOS E VARIAVEIS ESTÁTICAS
+// A TEORIA EU ENTENDI, A PRÁTICA ME CONFUNDE
+// Obs: Esse exercicio tava dando problema, consegui resolver com a ajuda do pessoal
+// durante a Pós-Daily
+// Eu estava passando n1 e n2 como parametros no método chooseCalc() e aparentemente ele
+// sobrescrevia o valor do parâmetros pro valor do static... Ou algo do tipo
+// Retirando os parametros funcionou!
+// Oi Matheus :D
 public class StaticCalculatorExercise {
     static String calculation;
     static int n1, n2;

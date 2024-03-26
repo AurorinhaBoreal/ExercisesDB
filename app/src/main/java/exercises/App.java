@@ -25,12 +25,12 @@ public class App {
         exercise = sExercise.nextInt();
         switch (exercise) {
             case 1:
-                System.out.println("Você escolheu o exercicio Age...");
+                System.out.println("Você escolheu o exercicio Idade...");
                 AgeExercise idade = new AgeExercise();
                 idade.VerifyingAge();
                 break;
             case 2:
-                System.out.println("Você escolheu o exercicio Product...");
+                System.out.println("Você escolheu o exercicio Produto...");
                 ProductExercise produto = new ProductExercise();
                 produto.productArray();
                 break;
