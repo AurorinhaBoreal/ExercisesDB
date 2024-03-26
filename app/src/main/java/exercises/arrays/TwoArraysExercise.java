@@ -1,4 +1,4 @@
-package exercises.logic;
+package exercises.arrays;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package exercises.logic;
+package exercises.repetitionStructures;
 
 import java.util.Scanner;
 
