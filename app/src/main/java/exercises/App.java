@@ -2,107 +2,108 @@ package exercises;
 
 
 import java.util.Scanner;
+import java.util.List;
+import java.util.Arrays;
 
 import exercises.arrays.*;
 import exercises.logic.*;
-import exercises.methods.SecondsConversionExercise;
-import exercises.methods.StaticCalculatorExercise;
-import exercises.methods.StudentExercise;
-import exercises.oop.BookLoanExercise;
+import exercises.methods.*;
+import exercises.oop.*;
 import exercises.repetitionStructures.*;
 
 public class App {
     
     public static void main(String[] args) {
-        int exercise;
+        int chooseExercise;
+        List<String> exercises = Arrays.asList("Idade", "Produto", "Jokenpo", "Calculadora", "Tabuada", "Numeros Aleatórios", "Fibonacci", "Leitura", "Limite de Fibonacci", "Soma de Matriz", "Organização de Array", "Mesclagem de Array", "Média de Aluno", "Conversão de Segundos", "Calculadora Estática", "Empréstimo de Livros", "Árvore Genealógica", "Automóveis", "Agenda Telefônica", "Super Mercado");
         Scanner sExercise = new Scanner(System.in);
 
-        System.out.println("Escolha o exercicio que deseja executar:");
-        System.out.println("1 - Idade \t 2 - Produto \t 3 - Jokenpo \t 4 - Calculadora");
-        System.out.println("5 - Tabuada \t 6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura");
-        System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array");
-        System.out.println("12 - Mesclagem de Arrays \t 13 - Media do Aluno \t 14 - Conversão");
-        System.out.println("15 - Calculadora Estática \t 16 - Empréstimo de Livros");
-        exercise = sExercise.nextInt();
-        switch (exercise) {
+        for (int i = 0; i < exercises.size(); i++) {
+            System.out.printf("| "+((exercises.indexOf(exercises.get(i)))+1)+" - "+exercises.get(i)+" |");
+            if (i > 1) {
+                if (i%2 == 0) System.out.println("\n");    
+            }
+        }
+        chooseExercise = sExercise.nextInt();
+        switch (chooseExercise) {
             case 1:
-                System.out.println("Você escolheu o exercicio Idade...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 AgeExercise idade = new AgeExercise();
                 idade.VerifyingAge();
                 break;
             case 2:
-                System.out.println("Você escolheu o exercicio Produto...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 ProductExercise produto = new ProductExercise();
                 produto.productArray();
                 break;
             case 3:
-                System.out.println("Você escolheu o exercicio Jokenpo...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 JokenpoExercise jokenpo = new JokenpoExercise();
                 jokenpo.game();
                 break;
             case 4:
-                System.out.println("Você escolheu o exercicio Calculadora...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 CalculatorExercise calculator = new CalculatorExercise();
                 calculator.chooseCalc();
                 break;
             case 5:
-                System.out.println("Você escolheu o exercicio Tabuada...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 MultiplicationExercise multiplication = new MultiplicationExercise();
                 multiplication.choosingNumber();
                 break;
             case 6:
-                System.out.println("Você escolheu o exercicio Números Aleatórios...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 RandomExercise random = new RandomExercise();
                 random.randomNumbers();
                 break;
             case 7:
-                System.out.println("Você escolheu o exercicio Fibonacci,,,");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 FibonacciExercise fibonacci = new FibonacciExercise();
                 fibonacci.FibonacciCalculation();
                 break;
             case 8:
-                System.out.println("Você escolheu o exercicio Leitura...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 ReadExercise read = new ReadExercise();
                 read.showNumber();
                 break;
             case 9:
-                System.out.println("Você escolheu o exercicio Limite de Fibonacci...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 FibonacciLimitExercise fibonacciLimit = new FibonacciLimitExercise();
                 fibonacciLimit.FibonacciCalculation();
                 break;
             case 10:
-                System.out.println("Você escolheu o exercicio Soma de Matriz...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 MatrixSumExercise matrix = new MatrixSumExercise();
                 matrix.Matrix();
                 break;
             case 11:
-                System.out.println("Você escolheu o exercicio Organizaçao de Array...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 RandomArrayExercise array = new RandomArrayExercise();
                 array.Array();
                 break;
             case 12:
-                System.out.println("Você escolheu o exercicio Organizaçao de Dois Arrays...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 TwoArraysExercise twoArrays = new TwoArraysExercise();
                 twoArrays.mergeArrays();
                 break;
             case 13:
-                System.out.println("Você escolheu o exercicio Media do Aluno...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 StudentExercise student = new StudentExercise();
                 student.studentInfo();
                 break;
             case 14:
-                System.out.println("Você escolheu o exercicio Conversão de Segundos...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 SecondsConversionExercise seconds = new SecondsConversionExercise();
                 seconds.getSeconds();
                 break;
             case 15:
-                System.out.println("Você escolheu o exercicio Calculadora Estática...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 StaticCalculatorExercise.chooseCalc();
                 break;
             case 16:
-                System.out.println("Você escolheu o exercicio Empréstimo de Livros...");
+                System.out.println("Você escolheu o exercicio "+exercises.get(chooseExercise-1)+"...");
                 BookLoanExercise bookLoan = new BookLoanExercise();
-                bookLoan.LibraryInterface();
+                bookLoan.BookListPopulate();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
