@@ -8,6 +8,7 @@ import exercises.logic.*;
 import exercises.methods.SecondsConversionExercise;
 import exercises.methods.StaticCalculatorExercise;
 import exercises.methods.StudentExercise;
+import exercises.oop.BookLoanExercise;
 import exercises.repetitionStructures.*;
 
 public class App {
@@ -21,7 +22,7 @@ public class App {
         System.out.println("5 - Tabuada \t 6 - Numeros Aleatórios \t 7 - Fibonacci \t 8 - Leitura");
         System.out.println("9 - Limite de Fibonacci \t 10 - Soma de Matriz11 \t 11 - Organização de Array");
         System.out.println("12 - Mesclagem de Arrays \t 13 - Media do Aluno \t 14 - Conversão");
-        System.out.println("");
+        System.out.println("15 - Calculadora Estática \t 16 - Empréstimo de Livros");
         exercise = sExercise.nextInt();
         switch (exercise) {
             case 1:
@@ -97,6 +98,11 @@ public class App {
             case 15:
                 System.out.println("Você escolheu o exercicio Calculadora Estática...");
                 StaticCalculatorExercise.chooseCalc();
+                break;
+            case 16:
+                System.out.println("Você escolheu o exercicio Empréstimo de Livros...");
+                BookLoanExercise bookLoan = new BookLoanExercise();
+                bookLoan.LibraryInterface();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
