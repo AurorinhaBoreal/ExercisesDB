@@ -18,7 +18,6 @@ public class CalculatorExercise {
 
         switch (calculation) {
             case 'A':
-                clearingArray();
                 getNumbers();
                 result = Addition(numbers);
                 System.out.println("O resultado de "+numbers.get(0)+" + "+numbers.get(1)+" é "+result);
@@ -57,9 +56,6 @@ public class CalculatorExercise {
         }
     }
 
-    private void clearingArray() {
-        numbers.clear();
-    }
     private void getNumberRoot() {
         System.out.println("Informe o número para o cálculo:");
 
