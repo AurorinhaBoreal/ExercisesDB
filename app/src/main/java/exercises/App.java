@@ -91,6 +91,7 @@ public class App {
             case 17:
                 FamilyTree tree = new FamilyTree();
                 tree.populatingTree();
+                break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
                 break;
