@@ -36,7 +36,7 @@ public class BookLoanExercise {
     
     private void LibraryInterface() {
         System.out.println("Olá! O que você gostaria de fazer?");
-        System.out.println("1 - Se Cadastrar \t 2 - Alugar Livro \n3 - Devolver Livro \t 4 - Administrar \n5 - Sair");
+        System.out.println("1 - Se Cadastrar \t 2 - Livros Disponiveis \n3 - Alugar Livro \t 4 - Devolver Livro \n5 - Administrar \t 6 - Sair");
         action = scanner.nextInt();
         // Capturar próxima linha vazia
         scanner.nextLine();
@@ -46,15 +46,19 @@ public class BookLoanExercise {
                 signIn();
                 break;
             case 2:
-                rentBook();
+                showBooks();
+                LibraryInterface();
                 break;
             case 3:
-                returnBook();
+                rentBook();
                 break;
             case 4:
-                AdministratorInterface();
+                returnBook();
                 break;
             case 5:
+                AdministratorInterface();
+                break;
+            case 6:
                 System.out.println("Volte sempre! :D");
                 break;
             default:
@@ -73,7 +77,9 @@ public class BookLoanExercise {
 
         personList.add(new Person(id, name, number));
 
-        System.out.println("Cadastro efetuado com Sucesso! Voltando para o Menu...");
+        System.out.println("Cadastro efetuado com Sucesso! ");
+        System.out.println("\nSeu ID de usuário é: "+personList.get(id-1).idPerson);
+        System.out.println("\nVoltando para o Menu...");
         LibraryInterface();
     }
 
@@ -119,7 +125,7 @@ public class BookLoanExercise {
 
     private void AdministratorInterface() {
         System.out.println("Bem-Vinde a Área da Administração. Escolha o que deseja:");
-        System.out.println("0 - Deslogar \n1 - Verificar Histórico de Livros Alugados \n2 - Mostrar Livros \t 3 - Mostrar Usuários \n4 - Remover Livro \t 5 - Remover Usuário");
+        System.out.println("0 - Deslogar \n1 - Verificar Histórico de Alugueis e Retornos \n2 - Mostrar Livros \t 3 - Mostrar Usuários \n4 - Remover Livro \t 5 - Remover Usuário");
         action = scanner.nextInt();
 
         switch (action) {
@@ -132,6 +138,7 @@ public class BookLoanExercise {
                 break;
             case 2:
                 showBooks();
+                AdministratorInterface();
                 break;
             case 3:
                 showUsers();
@@ -164,7 +171,6 @@ public class BookLoanExercise {
                 System.out.println(bookList.get(i).toString());    
         }
         System.out.println("\n Retornando... \n");
-        AdministratorInterface();
     }
 
     private void showUsers() {
