@@ -26,12 +26,12 @@ public class App {
         showChoosenExercise(defaultMsg, exercises, chooseExercise);
         switch (chooseExercise) {
             case 1:
-                AgeExercise idade = new AgeExercise();
-                idade.VerifyingAge();
+                AgeExercise age = new AgeExercise();
+                age.VerifyingAge();
                 break;
             case 2:
-                ProductExercise produto = new ProductExercise();
-                produto.productArray();
+                ProductExercise product = new ProductExercise();
+                product.productArray();
                 break;
             case 3:
                 JokenpoExercise jokenpo = new JokenpoExercise();
@@ -93,6 +93,8 @@ public class App {
                 tree.populatingTree();
                 break;
             case 18:
+                AutomobilesExercise automobile = new AutomobilesExercise();
+                automobile.choosingVehicle();
                 break;
             case 19:
                 PhoneBookExercise phone = new PhoneBookExercise();
