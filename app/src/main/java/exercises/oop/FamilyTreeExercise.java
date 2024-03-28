@@ -3,7 +3,7 @@ package exercises.oop;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FamilyTree {
+public class FamilyTreeExercise {
     ArrayList<Person> personList = new ArrayList<>();
     ArrayList<Parent> parentList = new ArrayList<>();
     ArrayList<Child> childList = new ArrayList<>();
@@ -55,9 +55,9 @@ public class FamilyTree {
 
         desiredID = (scanner.nextInt()-1);
 
-        if (personList.get(desiredID).isChild == true) {
+        if (personList.get(desiredID).isParent == true) {
             System.out.println("CRIANÇA!");
-        } else if (personList.get(desiredID).isParent == true) {
+        } else if (personList.get(desiredID).isChild == true) {
             System.out.println("PARENTE!!");
         } else {
             System.out.println("Não é criança nem parente? Ta certo isso ai?!");

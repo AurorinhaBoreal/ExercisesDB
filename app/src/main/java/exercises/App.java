@@ -89,11 +89,10 @@ public class App {
                 bookLoan.BookListPopulate();
                 break;
             case 17:
-                FamilyTree tree = new FamilyTree();
+                FamilyTreeExercise tree = new FamilyTreeExercise();
                 tree.populatingTree();
                 break;
             case 18:
-
                 break;
             case 19:
                 PhoneBookExercise phone = new PhoneBookExercise();
