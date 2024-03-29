@@ -46,7 +46,7 @@ public class AutomobilesExercise {
         int action;
         state = (car.turnOn == true) ? "Ligado" : "Desligado";
         System.out.println("O carro está "+state);
-        System.out.println("1 - Ligar/Desligar \t 2 - Guinchar \t 3 - Sair");
+        System.out.println("1 - Ligar/Desligar \t 2 - Guinchar \n3 - Mostrar Especificações \t 4 - Sair");
         action = scanner.nextInt();
 
         switch (action) {
@@ -58,6 +58,10 @@ public class AutomobilesExercise {
                 tow.Carrying("Carro");
                 System.out.println(tow.toString());
                 car.TowAway();
+                break;
+            case 3:
+                System.out.println(car.toStringCar()+car.toStringAutomobile());
+                useCar(car);
                 break;
             default:
                 System.out.println("Tchau Tchau!");
@@ -79,7 +83,7 @@ public class AutomobilesExercise {
         state = (car.turnOn == true) ? "Ligado" : "Desligado";
         System.out.println("O carro está "+state);
         System.out.println("O freio está "+brake);
-        System.out.println("1 - Ligar/Desligar \t 2 - Apertar Freio \n3 - Guinchar \t 4 - Sair");
+        System.out.println("1 - Ligar/Desligar \t 2 - Apertar Freio \n3 - Guinchar \t 4 - Mostrar Especificações \n5 - Sair");
         action = scanner.nextInt();
 
         switch (action) {
@@ -97,6 +101,10 @@ public class AutomobilesExercise {
                 tow.Carrying("Carro Automático");
                 System.out.println(tow.toString());
                 car.TowAway();
+                break;
+            case 4:
+                System.out.println(car.toStringCar()+car.toStringAutomobile());
+                useCar(car);
                 break;
             default:
                 System.out.println("Tchau Tchau!");
@@ -193,6 +201,10 @@ public class AutomobilesExercise {
             this.turnOn = turnOn;
         }
 
+        protected String toStringAutomobile() {
+            return " | Rodas: "+this.wheels+" | Velocidade Máxima: "+this.maxSpeed+" |";
+        }
+
         protected void On_Off() {
             turnOn = !turnOn;
         }
@@ -203,11 +215,15 @@ public class AutomobilesExercise {
     }
 
     private class Car extends Automobile {
-        private int doors = 4;
+        private int doors;
 
         public Car(int doors, int maxSpeed) {
             super(4, maxSpeed, false);
             this.doors = doors;
+        }
+
+        protected String toStringCar() {
+            return "| Portas: "+this.doors;
         }
     }
 
