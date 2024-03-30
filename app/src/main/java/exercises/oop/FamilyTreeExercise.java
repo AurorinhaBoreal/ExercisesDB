@@ -38,6 +38,7 @@ public class FamilyTreeExercise {
         System.out.println("1 - Escolher pessoa para ver Arvore Genealógica \n"
                 +"2 - Adicionar Parente \t 3 - Adicionar Criança \t 4 - Sair");
         action = scanner.nextInt();
+        scanner.nextLine();
         
         switch (action) {
             case 1:
@@ -65,6 +66,7 @@ public class FamilyTreeExercise {
         System.out.println("Informe o ID da pessoas desejada:");
 
         desiredID = (scanner.nextInt()-1);
+        scanner.nextLine();
 
         if (personList.get(desiredID).isParent == true) {
             // Verifica se a pessoa selecionada é um parente, se for ele terá que pegar
@@ -124,6 +126,76 @@ public class FamilyTreeExercise {
         System.out.println(personList.get(indexes[0]).toStringTree());
     }
 
+    private void showPerson() {
+        System.out.println("PESSOAS:");
+        System.out.println("| ID |      Nome     |  Nascimento  | Filho? | Parente? |");
+        personList.forEach((person) -> System.out.println(person.toString()));
+    }
+
+    private void AddParent() {
+        String fullName, childName;
+        int birthYear;
+        
+        System.out.println("Vejo que quer adicionar um novo parente! \n"
+        +"Por favor, insira as informações solicitadas:");
+
+        fullName = getFullName();
+        birthYear = getBirthYear();
+        childName = getChildName();
+
+        parentList.add(new Parent(personList.size()+1, fullName, birthYear, true, false, childName));
+        
+        System.out.println("O parente foi adicionado com sucesso! Voltando ao menu...");
+        TreeInterface();
+    }
+
+    private void AddChild() {
+        String fullName, parent1, parent2;
+        int birthYear;
+
+        System.out.println("Vejo que quer adicionar um novo filho! \n" 
+        +"Por favor, insira as informações solicitadas:");
+
+        fullName = getFullName();
+        birthYear = getBirthYear();
+        parent1 = getParentName();
+        parent2 = getParentName();
+
+        childList.add(new Child(personList.size()+1, fullName, birthYear, false, false, parent1, parent2));
+
+        System.out.println("O filho foi adicionado com sucesso! Voltando ao menu...");
+        TreeInterface();
+    }
+    
+    private String getFullName() {
+        String fullName;
+        System.out.println("Insira seu o nome completo:");
+        fullName = scanner.nextLine();
+        return fullName;
+    }
+
+    private int getBirthYear() {
+        int birthYear;
+        System.out.println("Insira o ano de nascimento:");
+        birthYear = scanner.nextInt();
+        scanner.nextLine();
+        return birthYear;
+    }
+
+    private String getChildName() {
+        String childName;
+        System.out.println("Insira o nome do filho:");
+        childName = scanner.nextLine();
+        return childName;
+    }
+
+    private String getParentName() {
+        String parentName;
+        System.out.println("Informe o nome do parente:");
+        parentName = scanner.nextLine();
+        return parentName;
+    }
+    
     private int getChildIndex(String child) {
         int childIndex = -1;
 
@@ -184,20 +256,35 @@ public class FamilyTreeExercise {
     }
 
     private void getChildInfo(int desiredID) {
+        String childName;
+        int searchChildParents;
+        // Array para armazenar os indexes da personList
+        // Indexes: 0 -> Child | 1 -> Parent1 | 2 -> Parent2
+        int[] indexes = {0, 0, 0};
+        
+        // Pega o nome da criança
+        childName = parentList.get(desiredID).childName;
 
-    }
-    private void showPerson() {
-        System.out.println("PESSOAS:");
-        System.out.println("| ID |      Nome     |  Nascimento  | Filho? | Parente? |");
-        personList.forEach((person) -> System.out.println(person.toString()));
-    }
+        // Usa o nome para buscar o ID na personList e depois o ID 
+        // para buscar o index da criança na childList
+        // O index na childList é necessário para ter o nome dos dois parentes
+        searchChildParents = searchChild(childName);
 
-    private void AddParent() {
+        // Usa o nome para buscar o index na personList e ter as informações gerais
+        indexes[0] = getChildIndex(childName);
 
-    }
+        // Pega o nome dos parentes utilizando o index da criança
+        // Depois busca os nomes na personList para encontrar o index
+        indexes[1] = searchParent1(searchChildParents);
+        indexes[2] = searchParent2(searchChildParents);
 
-    private void AddChild() {
-
+        System.out.println("Puxando as informações temos:");
+        // showTree(indexes);
+        System.out.println("Parentes:");
+        System.out.println(personList.get(indexes[1]).toStringTree());
+        System.out.println(personList.get(indexes[2]).toStringTree());
+        System.out.println("Filhos:");
+        System.out.println(personList.get(indexes[0]).toStringTree());
     }
     
     public class Person {
@@ -232,19 +319,15 @@ public class FamilyTreeExercise {
     }
 
     private class Parent extends Person {
-        private int idPerson;
+        // private int idPerson; Tava falando que não tava sendo usado...
+        // Não sei se eu utilizo o id do Parent pra fazer alguma relação
+        // Vou fazer o Method getChildInfo e ver, se não usar eu só apago mesmo
         private String childName;
 
         private Parent(int idPerson, String fullName, int birthYear, boolean isParent, boolean isChild, String childName) {
             super(idPerson, fullName, birthYear, isParent, isChild);
             personList.add(new Person(idPerson, fullName, birthYear, isParent, isChild));
-            this.idPerson = idPerson;
             this.childName = childName;
-        }
-
-        @Override
-        public String toString() {
-            return "| "+this.idPerson+" | "+this.childName;
         }
 
         public String toStringShow() {
@@ -264,11 +347,5 @@ public class FamilyTreeExercise {
             this.parent1Name = parent1Name;
             this.parent2Name = parent2Name;
         }
-
-        @Override
-        public String toString() {
-            return "| "+this.idPerson+" | "+this.parent1Name+" | "+this.parent2Name;
-        }
-
     }
 }
