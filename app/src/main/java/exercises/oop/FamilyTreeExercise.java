@@ -144,14 +144,73 @@ public class FamilyTreeExercise {
     }
     
     private void showTree(int[] indexes) {
-        System.out.println("Parentes:");
-        System.out.println(personList.get(indexes[1]).toStringTree());
-        System.out.println(personList.get(indexes[2]).toStringTree());
-        System.out.println("Filho:");
-        System.out.println(personList.get(indexes[0]).toStringTree());
+        ArrayList<String> treeInfo = new ArrayList<>();
+
+        populatingTreeASCII(treeInfo, indexes);
+        loadTree(treeInfo);
 
         System.out.println("Informações mostradas, voltando ao menu...");
         TreeInterface();
+    }
+
+    private void loadTree(ArrayList<String> treeInfo) {
+        for (int i = 0; i < treeInfo.size(); i++) {
+            System.out.println(treeInfo.get(i));
+        }
+    }
+    private void populatingTreeASCII(ArrayList<String> treeInfo, int[] indexes) {
+        treeInfo.add("            ______                       _   _             _______                      ");
+        treeInfo.add("           |  ____|                     (_) | |           |__   __|                     ");
+        treeInfo.add("           | |__      __ _   _ __ ___    _  | |  _   _       | |     _ __    ___    ___ ");
+        treeInfo.add("           |  __|    / _` | | '_ ` _ \\  | | | | | | | |      | |    | '__|  / _ \\  / _ \\");
+        treeInfo.add("           | |      | (_| | | | | | | | | | | | | |_| |      | |    | |    |  __/ |  __/");
+        treeInfo.add("           |_|       \\__,_| |_| |_| |_| |_| |_|  \\__, |      |_|    |_|     \\___|  \\___|");
+        treeInfo.add("                                                  __/ |                                 ");
+        treeInfo.add("                                                 |___/                                  \n\n\n\n");
+        treeInfo.add("                                                      .");
+        treeInfo.add("                                                   .:---:.");
+        treeInfo.add("                                                   :------:");
+        treeInfo.add("                                                ...------.");
+        treeInfo.add("                                              .---:   ...::.");
+        treeInfo.add("                                             .-----:..:----:");
+        treeInfo.add("                                             :------.-------");
+        treeInfo.add("                                          ... .:... ..::---.");
+        treeInfo.add("                                         :----.  .---:   .:---.");
+        treeInfo.add("                                        :-----:.:-----:.:-----:.");
+        treeInfo.add("                                  .:.. .:-----:.------:.:-----:");
+        treeInfo.add("   ...............................:----:.......::...:.... .::::::::::::::::::::::::::::::::::::::.");
+        treeInfo.add("  :.             PARENTE I           :--:    :---:. .:---. .--:             PARENTE II           :");
+        treeInfo.add("  :.           "+personList.get(indexes[1]).fullName+"         ::..  .------::------:---:           "+personList.get(indexes[2]).fullName+"        :");
+        treeInfo.add("  :.               "+personList.get(indexes[1]).birthYear+"             . .:-:.:-----.:------..:-:                 "+personList.get(indexes[2]).birthYear+"              :");
+        treeInfo.add("  :..................................: :-----.   .::. ... ....:::::::::::::::::::::::::::::::::::.");
+        treeInfo.add("    .-:...:.....    .------. .------: :-----. .:----. :------.  .-...:....");
+        treeInfo.add("    .+=*-==-==-.    .----::. .:--:.. .------:.------:.-------.  :-:+==:++-.");
+        treeInfo.add("                     .    .---:.   .. .::--:. :-----.  .----.");
+        treeInfo.add("                   .---: .------..:---.    .::.  ...... ........");
+        treeInfo.add("                  .-----:.------.------:..----:..:-----..:-----:");
+        treeInfo.add("                 .:-----:..::.  .------.:------.:------::------:");
+        treeInfo.add("                  ........--:.    ..    .:::--:. ..---:.  .:--:.");
+        treeInfo.add("                        .:----:..-::.        ..:.   ..::--. ..");
+        treeInfo.add("                        .------.-----:.    .:----: .------:");
+        treeInfo.add("                        .:-:....------.   .------:..------:");
+        treeInfo.add("                             . .:--:...::. .::---:    .::.");
+        treeInfo.add("                      ......:---:.....===:................");
+        treeInfo.add("                      .              FILHO               :");
+        treeInfo.add("                      .           "+personList.get(indexes[0]).fullName+"           :");
+        treeInfo.add("                      .               "+personList.get(indexes[0]).birthYear+"               :");
+        treeInfo.add("                      ::::::::::::---------:::::::::::::::");
+        treeInfo.add("                                  .-=++++=-.");
+        treeInfo.add("                                    :++++==.");
+        treeInfo.add("                                     :=====.");
+        treeInfo.add("                                    .-=====:");
+        treeInfo.add("                                    .-=====:");
+        treeInfo.add("                                    .======-");
+        treeInfo.add("                                    :======-.");
+        treeInfo.add("                                    -=======.");
+        treeInfo.add("                                   .========:");
+        treeInfo.add("                                   .========-");
+        treeInfo.add("                                   :========-.");
+        treeInfo.add("                                   -=========.");
     }
 
     private void showPerson() {
