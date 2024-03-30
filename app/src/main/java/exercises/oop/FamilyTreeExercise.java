@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FamilyTreeExercise {
+    // NÓ ULTIMO COMMIT EU COLOQUEI O EXERCICIO ERRADO! Esse comentário é só pra mim
+    // commitar com o nome certo!
     // Okkay vamos lá. Explicar isso pra mim não esquecer em dois dias
     // Ja adianto, ta muito confuso! KK
 
