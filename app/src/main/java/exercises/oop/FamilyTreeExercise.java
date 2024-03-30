@@ -118,12 +118,40 @@ public class FamilyTreeExercise {
         indexes[2] = searchParent2(searchChildParents);
 
         System.out.println("Puxando as informações temos:");
-        // showTree(indexes);
+        showTree(indexes);
+    }
+
+    private void getChildInfo(int desiredID) {
+        int searchChildParents;
+        // Array para armazenar os indexes da personList
+        // Indexes: 0 -> Child | 1 -> Parent1 | 2 -> Parent2
+        int[] indexes = {0, 0, 0};
+
+        // Atribui o desiredID como o ID da criança na personList
+        indexes[0] = desiredID;
+
+        // Pega o ID da criança e depos busca o index na childList
+        // O index na childList é necessário para ter o nome dos dois parentes
+        searchChildParents = searchChild2(indexes[0]);
+
+        // Pega o nome dos parentes utilizando o index da criança
+        // Depois busca os nomes na personList para encontrar o index
+        indexes[1] = searchParent1(searchChildParents);
+        indexes[2] = searchParent2(searchChildParents);
+
+        System.out.println("Puxando as informações temos:");
+        showTree(indexes);
+    }
+    
+    private void showTree(int[] indexes) {
         System.out.println("Parentes:");
         System.out.println(personList.get(indexes[1]).toStringTree());
         System.out.println(personList.get(indexes[2]).toStringTree());
-        System.out.println("Filhos:");
+        System.out.println("Filho:");
         System.out.println(personList.get(indexes[0]).toStringTree());
+
+        System.out.println("Informações mostradas, voltando ao menu...");
+        TreeInterface();
     }
 
     private void showPerson() {
@@ -161,7 +189,7 @@ public class FamilyTreeExercise {
         parent1 = getParentName();
         parent2 = getParentName();
 
-        childList.add(new Child(personList.size()+1, fullName, birthYear, false, false, parent1, parent2));
+        childList.add(new Child(personList.size()+1, fullName, birthYear, false, true, parent1, parent2));
 
         System.out.println("O filho foi adicionado com sucesso! Voltando ao menu...");
         TreeInterface();
@@ -230,6 +258,22 @@ public class FamilyTreeExercise {
         return childIndex;
     }
 
+    private int searchChild2(int desiredID) {
+        int childID = -1;
+        int childIndex = -1;
+
+        childID = personList.get(desiredID).idPerson;
+        
+        // ANALISAR SE É POSSIVEL TROCAR PELA FUNÇÃO DO ARRAYLIST
+        // Pegando o index da criança na lista de crianças por meio do ID
+        for (int i = 0; i < childList.size(); i++) {
+            if (childList.get(i).idPerson == childID) {
+                childIndex = i;
+            }
+        }
+        return childIndex;
+    }
+
     private int searchParent1(int childIndex) {
         String p1Name;
         int parent = -1;
@@ -255,38 +299,6 @@ public class FamilyTreeExercise {
         return parent;
     }
 
-    private void getChildInfo(int desiredID) {
-        String childName;
-        int searchChildParents;
-        // Array para armazenar os indexes da personList
-        // Indexes: 0 -> Child | 1 -> Parent1 | 2 -> Parent2
-        int[] indexes = {0, 0, 0};
-        
-        // Pega o nome da criança
-        childName = parentList.get(desiredID).childName;
-
-        // Usa o nome para buscar o ID na personList e depois o ID 
-        // para buscar o index da criança na childList
-        // O index na childList é necessário para ter o nome dos dois parentes
-        searchChildParents = searchChild(childName);
-
-        // Usa o nome para buscar o index na personList e ter as informações gerais
-        indexes[0] = getChildIndex(childName);
-
-        // Pega o nome dos parentes utilizando o index da criança
-        // Depois busca os nomes na personList para encontrar o index
-        indexes[1] = searchParent1(searchChildParents);
-        indexes[2] = searchParent2(searchChildParents);
-
-        System.out.println("Puxando as informações temos:");
-        // showTree(indexes);
-        System.out.println("Parentes:");
-        System.out.println(personList.get(indexes[1]).toStringTree());
-        System.out.println(personList.get(indexes[2]).toStringTree());
-        System.out.println("Filhos:");
-        System.out.println(personList.get(indexes[0]).toStringTree());
-    }
-    
     public class Person {
         private int idPerson;
         private String fullName;
@@ -319,9 +331,6 @@ public class FamilyTreeExercise {
     }
 
     private class Parent extends Person {
-        // private int idPerson; Tava falando que não tava sendo usado...
-        // Não sei se eu utilizo o id do Parent pra fazer alguma relação
-        // Vou fazer o Method getChildInfo e ver, se não usar eu só apago mesmo
         private String childName;
 
         private Parent(int idPerson, String fullName, int birthYear, boolean isParent, boolean isChild, String childName) {
