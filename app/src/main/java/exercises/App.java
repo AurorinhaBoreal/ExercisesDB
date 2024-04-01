@@ -109,13 +109,16 @@ public class App {
 
     public static void showExercise(List<String> exercises) {
         System.out.println("|================EXERCICIOS===============|");
-        for (int i = 0; i < exercises.size(); i++) {
-            System.out.printf("| "+((exercises.indexOf(exercises.get(i)))+1)+" - "+exercises.get(i)+" |");
-            if (i > 1) {
-                if (i%2 == 0) System.out.println("\n");    
-            }
-        }
-        System.out.println("\n|====================|");
+        exercises.forEach((exercise) -> {
+            System.out.println("| "+exercises.indexOf(exercise)+" - "+exercise);
+        });
+        // for (int i = 0; i < exercises.size(); i++) {
+        //     System.out.printf("| "+((exercises.indexOf(exercises.get(i)))+1)+" - "+exercises.get(i)+" |");
+        //     if (i > 1) {
+        //         if (i%2 == 0) System.out.println("\n");    
+        //     }
+        // }
+        System.out.println("|=======================|");
         System.out.println("Informe o Exercicio que deseja visualizar:");
     }    
 
