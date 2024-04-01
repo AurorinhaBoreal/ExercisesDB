@@ -110,7 +110,7 @@ public class App {
     public static void showExercise(List<String> exercises) {
         System.out.println("|================EXERCICIOS===============|");
         exercises.forEach((exercise) -> {
-            System.out.println("| "+exercises.indexOf(exercise)+" - "+exercise);
+            System.out.println("| "+((exercises.indexOf(exercise))+1)+" - "+exercise);
         });
         // for (int i = 0; i < exercises.size(); i++) {
         //     System.out.printf("| "+((exercises.indexOf(exercises.get(i)))+1)+" - "+exercises.get(i)+" |");
