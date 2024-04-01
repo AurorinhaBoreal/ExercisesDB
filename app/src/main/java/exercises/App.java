@@ -112,12 +112,6 @@ public class App {
         exercises.forEach((exercise) -> {
             System.out.println("| "+((exercises.indexOf(exercise))+1)+" - "+exercise);
         });
-        // for (int i = 0; i < exercises.size(); i++) {
-        //     System.out.printf("| "+((exercises.indexOf(exercises.get(i)))+1)+" - "+exercises.get(i)+" |");
-        //     if (i > 1) {
-        //         if (i%2 == 0) System.out.println("\n");    
-        //     }
-        // }
         System.out.println("|=======================|");
         System.out.println("Informe o Exercicio que deseja visualizar:");
     }    
