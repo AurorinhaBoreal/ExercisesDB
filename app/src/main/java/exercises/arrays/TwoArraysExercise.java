@@ -15,15 +15,6 @@ public class TwoArraysExercise {
         System.out.println("\nArray 2:");
         showingArrays(array2);
 
-        sortingArray(array1);
-        sortingArray(array2);
-        
-        System.out.println("\n Arrays Organizados:");
-        System.out.println("Array 1:");
-        showingArrays(array1);
-        System.out.println("\nArray 2:");
-        showingArrays(array2);
-
         int[] array3 = mergingArrays(array1, array2);
         System.out.println("\n Arrays Mesclados Desorganizados");
         showingArrays(array3);
