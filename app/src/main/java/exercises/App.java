@@ -10,13 +10,14 @@ import exercises.logic.*;
 import exercises.methods.*;
 import exercises.oop.*;
 import exercises.repetitionStructures.*;
+import exercises.superMarket.*;
 
 public class App {
 
     public static void main(String[] args) {
         int chooseExercise;
         String defaultMsg = "Você escolheu o exercicio";
-        List<String> exercises = Arrays.asList("Idade", "Produto", "Jokenpo", "Calculadora", "Tabuada", "Numeros Aleatórios", "Fibonacci", "Leitura", "Limite de Fibonacci", "Soma de Matriz", "Organização de Array", "Mesclagem de Array", "Média de Aluno", "Conversão de Segundos", "Calculadora Estática", "Empréstimo de Livros", "Árvore Genealógica", "Automóveis", "Agenda Telefônica");
+        List<String> exercises = Arrays.asList("Idade", "Produto", "Jokenpo", "Calculadora", "Tabuada", "Numeros Aleatórios", "Fibonacci", "Leitura", "Limite de Fibonacci", "Soma de Matriz", "Organização de Array", "Mesclagem de Array", "Média de Aluno", "Conversão de Segundos", "Calculadora Estática", "Empréstimo de Livros", "Árvore Genealógica", "Automóveis", "Agenda Telefônica, Super Mercado");
         Scanner sExercise = new Scanner(System.in);
 
         showExercise(exercises);
@@ -99,6 +100,10 @@ public class App {
             case 19:
                 PhoneBookExercise phone = new PhoneBookExercise();
                 phone.PopulateBook();
+                break;
+            case 20:
+                Menu supermarket = new Menu();
+                supermarket.menuController();
                 break;
             default:
                 System.out.println("Esse não é um exercicio válido.");
