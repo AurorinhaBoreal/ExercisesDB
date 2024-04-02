@@ -17,7 +17,7 @@ public class App {
     public static void main(String[] args) {
         int chooseExercise;
         String defaultMsg = "Você escolheu o exercicio";
-        List<String> exercises = Arrays.asList("Idade", "Produto", "Jokenpo", "Calculadora", "Tabuada", "Numeros Aleatórios", "Fibonacci", "Leitura", "Limite de Fibonacci", "Soma de Matriz", "Organização de Array", "Mesclagem de Array", "Média de Aluno", "Conversão de Segundos", "Calculadora Estática", "Empréstimo de Livros", "Árvore Genealógica", "Automóveis", "Agenda Telefônica, Super Mercado");
+    List<String> exercises = Arrays.asList("Idade", "Produto", "Jokenpo", "Calculadora", "Tabuada", "Numeros Aleatórios", "Fibonacci", "Leitura", "Limite de Fibonacci", "Soma de Matriz", "Organização de Array", "Mesclagem de Array", "Média de Aluno", "Conversão de Segundos", "Calculadora Estática", "Empréstimo de Livros", "Árvore Genealógica", "Automóveis", "Agenda Telefônica", "Super Mercado");
         Scanner sExercise = new Scanner(System.in);
 
         showExercise(exercises);
