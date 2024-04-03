@@ -50,11 +50,11 @@ public class Stock {
 
     public static void showStockCatalog() {
         System.out.println("Stock ID: "+id);
-        System.out.println("|---------|");
+        System.out.println("|--------------------------------|");
         productsList.forEach((product) -> {
-            System.out.println("| "+product.getName()+" |");
+            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" |");
         });
-        System.out.println("|---------|");
+        System.out.println("|--------------------------------|");
     }
 
     public static boolean updateStock(String name, int qtt) {
@@ -93,8 +93,9 @@ public class Stock {
         return updateVerify;
     }
 
-    public int stockLatestQtt(Product product) {
-        int productQtt = 0;
+    public static int stockLatestQtt(Product product) {
+        int productQtt;
+        productQtt = productsList.get(productsList.indexOf(product)).getStock();
 
         return productQtt;
     }
