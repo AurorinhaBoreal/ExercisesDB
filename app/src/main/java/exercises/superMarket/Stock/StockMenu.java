@@ -46,6 +46,10 @@ public class StockMenu {
                 getProductStock();
                 stockMenu();
                 break;
+            case 6:
+                productPosition();
+                stockMenu();
+                break;
             default:
                 System.out.println("Opção Inválida");
                 stockMenu();
