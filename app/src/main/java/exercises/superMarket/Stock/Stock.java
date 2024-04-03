@@ -35,7 +35,7 @@ public class Stock {
         return productsList.get(productFounded[0]);
     }
 
-    public boolean registerProduct(Product product) {
+    public static boolean registerProduct(Product product) {
         boolean registerVerify;
 
         try {

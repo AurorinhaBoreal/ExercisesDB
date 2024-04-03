@@ -2,7 +2,7 @@ package exercises.superMarket.Stock;
 
 import java.util.Scanner;
 
-import exercises.logic.ProductExercise.Product;
+import exercises.superMarket.Product;
 
 public class StockMenu {
     public void stockMenu(Scanner scanner) {
@@ -60,25 +60,30 @@ public class StockMenu {
     }
 
     private void addProduct(Scanner scanner) {
+        boolean addVerify;
         System.out.println("Insira as informações para cadastro do Produto:");
 
         Product prod = getProduct(scanner);
+        addVerify = Stock.registerProduct(prod);
+
+        if (addVerify == true) System.out.println("O Produto foi registrado com sucosse!");
+        else System.out.println("Falha no registro, verifique o terminal e tente novamente!");
     }
 
     private Product getProduct(Scanner scanner) {
-        Product prod;
         int id = Stock.productsList.size()+1;
         String name;
         double price;
         int stockQtt;
 
-        System.out.printf("Informe o nome do produto:");
+        System.out.println("Informe o nome do produto:");
         name = scanner.nextLine();
-        System.out.printf("Informe o preço do produto:");
+        System.out.println("Informe o preço do produto:");
         price = scanner.nextDouble();
-        System.out.printf("Informe a quantidade do produto em estoque:");
+        System.out.println("Informe a quantidade do produto em estoque:");
         stockQtt = scanner.nextInt();
 
-        prod = new Product(id, name, price, stockQtt);
+        Product prod = new Product(id, name, price, stockQtt);
+        return prod;
     }
 }
