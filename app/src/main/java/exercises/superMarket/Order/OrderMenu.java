@@ -3,7 +3,8 @@ package exercises.superMarket.Order;
 import java.util.Scanner;
 
 public class OrderMenu {
-    public void orderMenu(Scanner scanner) {
+    Scanner scanner = new Scanner(System.in);
+    public void orderMenu() {
         int orderAction;
         System.out.println("Escolha a ação desejada:");
 
