@@ -57,7 +57,7 @@ public class Stock {
         System.out.println("|---------|");
     }
 
-    public boolean updateStock(String name, int qtt) {
+    public static boolean updateStock(String name, int qtt) {
         boolean updateVerify;
         int productIndex[] = {0};
         productsList.forEach((product) -> {
@@ -75,7 +75,7 @@ public class Stock {
         return updateVerify;
     }
 
-    public boolean updateStock(int id, int qtt) {
+    public static boolean updateStock(int id, int qtt) {
         boolean updateVerify;
         int productIndex[] = {0};
         productsList.forEach((product) -> {

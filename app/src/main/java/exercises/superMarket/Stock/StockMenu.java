@@ -11,8 +11,7 @@ public class StockMenu {
         int stockAction;
         System.out.println("Escolha a ação desejada:");
         System.out.println("| 1 - Encontrar Produto \t 2 - Cadastrar Produto \t 3 - Mostrar Estoque \n"+
-        "4 - Atualizar Estoque \t 5 - Estoque de Produto \t 6 - Posição do Produto "+
-        "\n7 - Possui Estoque?");
+        "4 - Atualizar Estoque \t 5 - Estoque de Produto \t 6 - Posição do Produto ");
         
         stockAction = scanner.nextInt();
         scanner.nextLine();
@@ -34,6 +33,9 @@ public class StockMenu {
                 showStock();
                 stockMenu();
                 break;
+            case 4:
+                stockUpdate();
+                stockMenu();
             default:
             
         }
@@ -98,5 +100,27 @@ public class StockMenu {
         Stock.showStockCatalog();
     }
 
+    private void stockUpdate() {
+        String prod;
+        String prodName;
+        int prodId;
+        int qttUpdate;
+        System.out.println("Informe o Nome ou ID do produto que deseja atualizar o estoque:");
+        prod = scanner.nextLine();
 
+        System.out.println("Informe a quantidade de items que quer adicionar ou quer remover:");
+        qttUpdate = scanner.nextInt();
+        scanner.nextLine();
+        // Captura a linha
+
+        boolean isName = nameVerify(prod);
+
+        if (isName == true) {
+            prodName = prod;
+            Stock.updateStock(prodName, qttUpdate);
+        } else {
+            prodId = Integer.valueOf(prod);
+            Stock.updateStock(prodId, qttUpdate);
+        }
+    }
 }
