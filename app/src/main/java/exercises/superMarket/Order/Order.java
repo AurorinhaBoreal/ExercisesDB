@@ -1,6 +1,9 @@
-package exercises.superMarket;
+package exercises.superMarket.Order;
 
 import java.util.ArrayList;
+
+import exercises.superMarket.Item;
+import exercises.superMarket.Product;
 
 public class Order {
     private ArrayList<Item> itemList = new ArrayList<>();

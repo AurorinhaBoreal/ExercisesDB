@@ -1,6 +1,8 @@
-package exercises.superMarket;
+package exercises.superMarket.Stock;
 
 import java.util.ArrayList;
+
+import exercises.superMarket.Product;
 public class Stock {
     private int id = 1;
     private ArrayList<Product> productsList = new ArrayList<>();
@@ -103,5 +105,12 @@ public class Stock {
         }
 
         return stockVerify;
+    }
+
+    public void getStock() {
+        System.out.println("ID do Estoque: "+this.id);
+        productsList.forEach((prod) -> {
+            System.out.println(productsList.get(productsList.indexOf(prod)).getProduct());
+        });
     }
 }
