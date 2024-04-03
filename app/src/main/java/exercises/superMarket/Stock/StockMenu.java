@@ -5,7 +5,8 @@ import java.util.Scanner;
 import exercises.superMarket.Product;
 
 public class StockMenu {
-    public void stockMenu(Scanner scanner) {
+    Scanner scanner = new Scanner(System.in);
+    public void stockMenu() {
         Stock.startStock();
         int stockAction;
         System.out.println("Escolha a ação desejada:");
@@ -17,22 +18,25 @@ public class StockMenu {
         scanner.nextLine();
         // Captura Nova Linha
 
-        stockCase(stockAction, scanner);
+        stockCase(stockAction);
     }
     
-    private void stockCase(int stockAction, Scanner scanner) {
+    private void stockCase(int stockAction) {
         switch (stockAction) {
             case 1:
-                findProduct(scanner);                
+                findProduct();   
+                stockMenu();             
                 break;
             case 2:
-                addProduct(scanner);
+                addProduct();
             default:
+            case 3:
+                showStock();
                 break;
         }
     }
 
-    private void findProduct(Scanner scanner) {
+    private void findProduct() {
         String searchProduct;
         String nameProduct;
         int idProduct;
@@ -59,18 +63,18 @@ public class StockMenu {
         return true;
     }
 
-    private void addProduct(Scanner scanner) {
+    private void addProduct() {
         boolean addVerify;
         System.out.println("Insira as informações para cadastro do Produto:");
 
-        Product prod = getProduct(scanner);
+        Product prod = getProduct();
         addVerify = Stock.registerProduct(prod);
 
         if (addVerify == true) System.out.println("O Produto foi registrado com sucosse!");
         else System.out.println("Falha no registro, verifique o terminal e tente novamente!");
     }
 
-    private Product getProduct(Scanner scanner) {
+    private Product getProduct() {
         int id = Stock.productsList.size()+1;
         String name;
         double price;
@@ -86,4 +90,10 @@ public class StockMenu {
         Product prod = new Product(id, name, price, stockQtt);
         return prod;
     }
+
+    private void showStock() {
+
+    }
+
+
 }

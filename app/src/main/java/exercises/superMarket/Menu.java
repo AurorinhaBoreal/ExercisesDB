@@ -21,11 +21,11 @@ public class Menu {
         switch (action) {
             case 1:
                 StockMenu sm = new StockMenu();
-                sm.stockMenu(scanner);
+                sm.stockMenu();
                 break;
             case 2:
                 OrderMenu om = new OrderMenu();
-                om.orderMenu(scanner);
+                om.orderMenu();
                 break;
             default:
                 break;
