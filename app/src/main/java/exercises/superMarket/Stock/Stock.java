@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 import exercises.superMarket.Product;
 public class Stock {
-    private int id = 1;
-    private ArrayList<Product> productsList = new ArrayList<>();
+    static private int id = 1;
+    static private ArrayList<Product> productsList = new ArrayList<>();
 
-    public void startStock() {
-
+    public static void startStock() {
+        productsList.add(new Product(productsList.size()+1, "Cadeira", 70.65, 30));
+        productsList.add(new Product(productsList.size()+1, "Mesa", 145.60, 10));
+        productsList.add(new Product(productsList.size()+1, "Porta", 110.90, 18));
+        productsList.add(new Product(productsList.size()+1, "Sofá", 270.30, 12));
+        productsList.add(new Product(productsList.size()+1, "Armário", 137.55, 24));
     }
 
-    public Product findProduct(String name) {
+    public static Product findProduct(String name) {
         int[] productFounded = {-1};
         productsList.forEach((product) -> {
             if ((productsList.get(productsList.indexOf(product)).getName()).equals(name)) {
@@ -21,7 +25,7 @@ public class Stock {
         return productsList.get(productFounded[0]);
     }
 
-    public Product findProduct(int id) {
+    public static Product findProduct(int id) {
         int[] productFounded = {-1};
         productsList.forEach((product) -> {
             if ((productsList.get(productsList.indexOf(product)).getId()) == id) {
