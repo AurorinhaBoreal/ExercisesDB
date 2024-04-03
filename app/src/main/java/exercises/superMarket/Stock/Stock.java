@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import exercises.superMarket.Product;
 public class Stock {
     static private int id = 1;
-    static private ArrayList<Product> productsList = new ArrayList<>();
+    static protected ArrayList<Product> productsList = new ArrayList<>();
 
     public static void startStock() {
         productsList.add(new Product(productsList.size()+1, "Cadeira", 70.65, 30));
@@ -35,12 +35,18 @@ public class Stock {
         return productsList.get(productFounded[0]);
     }
 
-    // public boolean registerProduct(Product product) {
-    //     boolean registerVerify;
-    //     if (registerVerify) registerVerify = true;
-    //     else registerVerify = false;
-    //     return registerVerify;
-    // }
+    public boolean registerProduct(Product product) {
+        boolean registerVerify;
+
+        try {
+            productsList.add(product);
+            registerVerify = true;
+        } catch (Exception e) {
+            registerVerify = false;
+        }
+        
+        return registerVerify;
+    }
 
     public void showStockCatalog() {
         System.out.println("Stock ID:"+this.id);
