@@ -29,10 +29,13 @@ public class StockMenu {
                 break;
             case 2:
                 addProduct();
-            default:
+                stockMenu();
             case 3:
                 showStock();
+                stockMenu();
                 break;
+            default:
+            
         }
     }
 
@@ -92,7 +95,7 @@ public class StockMenu {
     }
 
     private void showStock() {
-
+        Stock.showStockCatalog();
     }
 
 

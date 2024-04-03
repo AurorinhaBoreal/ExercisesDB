@@ -48,11 +48,13 @@ public class Stock {
         return registerVerify;
     }
 
-    public void showStockCatalog() {
-        System.out.println("Stock ID:"+this.id);
+    public static void showStockCatalog() {
+        System.out.println("Stock ID: "+id);
+        System.out.println("|---------|");
         productsList.forEach((product) -> {
-            System.out.println(product.getName());
+            System.out.println("| "+product.getName()+" |");
         });
+        System.out.println("|---------|");
     }
 
     public boolean updateStock(String name, int qtt) {
