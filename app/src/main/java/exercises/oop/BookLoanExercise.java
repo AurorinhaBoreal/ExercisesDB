@@ -91,15 +91,15 @@ public class BookLoanExercise {
         personRenting = scanner.nextInt();
 
         System.out.println("| IdBook |     BookName     |   Author   |");
-        for (int i = 0; i < bookList.size(); i++) {
-            if (bookList.get(i).rented == false) {
-                System.out.println(bookList.get(i).toStringUser());    
+        bookList.forEach((book) -> {
+            if (bookList.get(bookList.indexOf(book)).rented == false) {
+                System.out.println(bookList.get(bookList.indexOf(book)).toStringUser());
             }
-        }
+        });
         System.out.println("Informe o ID do livro que deseja alugar:");
         bookRented = scanner.nextInt();
 
-        bookList.get(bookRented).rented = true;
+        bookList.get(bookRented-1).rented = true;
         rentHistory.add(new StatusBook(bookRented, personRenting, true, false));
 
         System.out.println("Aluguel registrado! Voltando para o Menu...");
@@ -116,7 +116,7 @@ public class BookLoanExercise {
         System.out.println("Informe o ID do livro que deseja retornar:");
         bookReturned = scanner.nextInt();
 
-        bookList.get(bookReturned).rented = false;
+        bookList.get(bookReturned-1).rented = false;
         rentHistory.add(new StatusBook(bookReturned, personReturning, false, true));
 
         System.out.println("Retorno registrado! Voltando para o Menu...");
@@ -158,26 +158,26 @@ public class BookLoanExercise {
 
     private void showHistory() {
         System.out.println("| IdBook | IdPerson | Rented | Returned |");
-        for (int i = 0; i < rentHistory.size(); i++) {
-            System.out.println(rentHistory.get(i).toString());
-        }
+        rentHistory.forEach((register) -> {
+            System.out.println(rentHistory.get(rentHistory.indexOf(register)).toString());
+        });
         System.out.println("\n Retornando... \n");
         AdministratorInterface();
     }
 
     private void showBooks() {
         System.out.println("| IdBook |     BookName     |   Author   | Rented |");
-        for (int i = 0; i < bookList.size(); i++) {
-                System.out.println(bookList.get(i).toString());    
-        }
+        bookList.forEach((book) -> {
+            System.out.println(bookList.get(bookList.indexOf(book)).toString());
+        });
         System.out.println("\n Retornando... \n");
     }
 
     private void showUsers() {
         System.out.println("| IdUser |          Name         |    Number    |");
-        for (int i = 0; i < personList.size(); i++) {
-            System.out.println(personList.get(i).toString());
-        }
+        personList.forEach((person) -> {
+            System.out.println(personList.get(personList.indexOf(person)).toString());
+        });
         System.out.println("\n Retornando... \n");
         AdministratorInterface();
     }
