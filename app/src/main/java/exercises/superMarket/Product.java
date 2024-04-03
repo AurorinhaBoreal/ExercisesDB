@@ -1,13 +1,13 @@
 package exercises.superMarket;
 
-
 public class Product {
     private int id;
     private String name;
     private double price;
     private int stockQtt;
 
-    public Product(String name, double price, int stockQtt) {
+    public Product(int id, String name, double price, int stockQtt) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.stockQtt = stockQtt;
@@ -29,6 +29,10 @@ public class Product {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -37,10 +41,6 @@ public class Product {
         return this.price;
     }
 
-    public String getName() {
-        return this.name;
-    }
-    
     public void stockUpdate(int qtt) {
         this.stockQtt += qtt;
     }
@@ -48,9 +48,8 @@ public class Product {
     public void setStock(int stockQtt) {
         this.stockQtt = stockQtt;
     }
-    
+
     public int getStock() {
         return this.stockQtt;
     }
-    
 }

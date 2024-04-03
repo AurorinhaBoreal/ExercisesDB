@@ -43,7 +43,7 @@ public class StockMenu {
 
         if (isName == true) {
             nameProduct = searchProduct;
-            System.out.println(Stock.findProduct(nameProduct).getProduct());
+            System.out.println(Stock.findProduct(nameProduct));
         } else {
             idProduct = Integer.valueOf(searchProduct);
             System.out.println(Stock.findProduct(idProduct).getProduct());
