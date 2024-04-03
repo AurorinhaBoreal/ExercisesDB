@@ -80,9 +80,9 @@ public class PhoneBookExercise {
 
     private void ShowNumbers() {
         System.out.println("| ID  |        Nome        |      Número     |");
-        for (int i = 0; i < phonebook.size(); i++) {
-            System.out.println(phonebook.get(i).toString());
-        }
+        phonebook.forEach((number) -> {
+            System.out.println(phonebook.get(phonebook.indexOf(number)).toString());
+        });
     }
 
     private void AdministratorInterface() {

@@ -40,9 +40,7 @@ public class ProductExercise {
     
     private void buyProduct() {
         System.out.println("LISTA DE PRODUTOS:");
-        for (Product product: products) {
-            System.out.println(product.toString());
-        }
+        products.forEach((product) -> System.out.println(product));
         System.out.println("Insira o ID do produto que deseja comprar:");
 
         int chosenProduct = (scanner.nextInt() - 1);

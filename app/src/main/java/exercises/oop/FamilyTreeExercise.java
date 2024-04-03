@@ -156,9 +156,9 @@ public class FamilyTreeExercise {
     }
 
     private void loadTree(ArrayList<String> treeInfo) {
-        for (int i = 0; i < treeInfo.size(); i++) {
-            System.out.println(treeInfo.get(i));
-        }
+        treeInfo.forEach((line) -> {
+            System.out.println(treeInfo.get(treeInfo.indexOf(line)));
+        });
     }
     private void populatingTreeASCII(ArrayList<String> treeInfo, int[] indexes) {
         treeInfo.add("            ______                       _   _             _______                      ");
@@ -286,78 +286,76 @@ public class FamilyTreeExercise {
     }
     
     private int getChildIndex(String child) {
-        int childIndex = -1;
+        int childIndex[] = {-1};
 
         // Pegando index da criança para apresentar as informações
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).fullName.equals(child)) {
-                childIndex = i;
+        personList.forEach((person) -> {
+            if (personList.get(personList.indexOf(person)).fullName.equals(child)) {
+                childIndex[0] = personList.indexOf(person);
             }
-        }
-        return childIndex;
+        });
+        return childIndex[0];
     }
 
     private int searchChild(String child) {
-        int childID = -1;
-        int childIndex = -1;
+        int childID[] = {-1};
+        int childIndex[] = {-1};
 
-        // ANALISAR SE É POSSIVEL TROCAR PELA FUNÇÃO DO ARRAYLIST
         // Pegando ID da criança na personList por meio do nome
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).fullName.equals(child)) {
-                childID = personList.get(i).idPerson;
+        personList.forEach((person) -> {
+            if (personList.get(personList.indexOf(person)).fullName.equals(child)) {
+                childID[0] = personList.get(personList.indexOf(person)).idPerson;
             }
-        }
+        });
 
-        // ANALISAR SE É POSSIVEL TROCAR PELA FUNÇÃO DO ARRAYLIST
         // Pegando o index da criança na lista de crianças por meio do ID
-        for (int i = 0; i < childList.size(); i++) {
-            if (childList.get(i).idPerson == childID) {
-                childIndex = i;
+        childList.forEach((childObj) -> {
+            if (childList.get(childList.indexOf(childObj)).idPerson == childID[0]) {
+                childIndex[0] = childList.indexOf(childObj);
             }
-        }
-        return childIndex;
+        });
+        return childIndex[0];
     }
 
     private int searchChild2(int desiredID) {
-        int childID = -1;
-        int childIndex = -1;
+        int childID[] = {-1};
+        int childIndex[] = {-1};
 
-        childID = personList.get(desiredID).idPerson;
+        childID[0] = personList.get(desiredID).idPerson;
         
-        // ANALISAR SE É POSSIVEL TROCAR PELA FUNÇÃO DO ARRAYLIST
         // Pegando o index da criança na lista de crianças por meio do ID
-        for (int i = 0; i < childList.size(); i++) {
-            if (childList.get(i).idPerson == childID) {
-                childIndex = i;
+        childList.forEach((childObj) -> {
+            if (childList.get(childList.indexOf(childObj)).idPerson == childID[0]) {
+                childIndex[0] = childList.indexOf(childObj);
             }
-        }
-        return childIndex;
+        });
+        return childIndex[0];
     }
 
     private int searchParent1(int childIndex) {
         String p1Name;
-        int parent = -1;
+        int parent[] = {-1};
         p1Name = childList.get(childIndex).parent1Name;
 
-        // ANALISAR SE É POSSIVEL TROCAR PELA FUNÇÃO DO ARRAYLIST
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).fullName.equals(p1Name)) parent = i;
-        }
-
-        return parent;
+        personList.forEach((person) -> {
+            if (personList.get(personList.indexOf(person)).fullName.equals(p1Name)) {
+                parent[0] = personList.indexOf(person);
+            }
+        });
+        return parent[0];
     }
 
     private int searchParent2(int childIndex) {
         String p2Name;
-        int parent = -1;
+        int parent[] = {-1};
         p2Name = childList.get(childIndex).parent2Name;
 
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).fullName.equals(p2Name)) parent = i;
-        }
-
-        return parent;
+        personList.forEach((person) -> {
+            if (personList.get(personList.indexOf(person)).fullName.equals(p2Name)) {
+                parent[0] = personList.indexOf(person);
+            }
+        });
+        return parent[0];
     }
 
     public class Person {
