@@ -41,10 +41,10 @@ public class OrderMenu {
             case 5:
                 Order.clearCart();
                 orderMenu();
-            // case 6:
-            //     Menu menu = new Menu();
-            //     menu.menuController();
-            //     break;
+            case 6:
+                Menu menu = new Menu();
+                menu.menuController();
+                break;
             default:
                 System.out.println("Opção Inválida");
                 orderMenu();

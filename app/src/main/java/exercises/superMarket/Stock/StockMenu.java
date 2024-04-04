@@ -47,10 +47,10 @@ public class StockMenu {
                 productPosition();
                 stockMenu();
                 break;
-            // case 7:
-            //     Menu menu = new Menu();
-            //     menu.menuController();
-            //     break;
+            case 7:
+                Menu menu = new Menu();
+                menu.menuController();
+                break;
             default:
                 System.out.println("Opção Inválida");
                 stockMenu();
