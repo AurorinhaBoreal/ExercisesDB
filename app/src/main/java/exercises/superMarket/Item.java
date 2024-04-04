@@ -1,5 +1,7 @@
 package exercises.superMarket;
 
+import exercises.superMarket.Order.Order;
+
 public class Item {
     private Product product;
     private int qtt;
@@ -18,12 +20,16 @@ public class Item {
     }
 
     public String getItem() {
-        return "| "+this.product+" | "+this.qtt+" | "+this.itemValue+" |";
+        itemValue = this.qtt * this.itemValue;
+        return String.format("| %s | %d | %.2f |", this.product.getName(), this.qtt, itemValue);
     }
 
     public double totalValue() {
-        double totalValue = qtt*itemValue;
-        return totalValue;
+        int totalValue[] = {0};
+        Order.itemList.forEach((item) -> {
+            totalValue[0] += item.itemValue;
+        });
+        return totalValue[0];
     }
 
     public void changeQtt(int qtt) {

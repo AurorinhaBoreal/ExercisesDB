@@ -6,7 +6,7 @@ import exercises.superMarket.Item;
 import exercises.superMarket.Product;
 
 public class Order {
-    static private ArrayList<Item> itemList = new ArrayList<>();
+    static public ArrayList<Item> itemList = new ArrayList<>();
     static private double totalOrderValue = 0;
 
     public static void calcTotalValue() {
@@ -24,16 +24,18 @@ public class Order {
         return AddVerify;
     }
 
-    // public String toString() {
-    //     itemList.forEach((item)-> {
-    //         System.out.println("| "+itemList.get(itemList.indexOf(item)).getItem()+" |");
-    //     });
-    //     System.out.println("| TOTAL: "+this.totalOrderValue+" |");
-    //     return "a";
-    // };
+    public static String getOrder() {
+        itemList.forEach((item)-> {
+            System.out.println(itemList.get(itemList.indexOf(item)).getItem());
+        });
+        calcTotalValue();
+        String totalValue = ("| TOTAL: "+totalOrderValue+" |");
+        return totalValue;
+    };
 
-    public String getTotalOrderValue() {
-        return "| "+this.totalOrderValue+" |";
+    public static String getTotalOrderValue() {
+        calcTotalValue();
+        return "| VALOR DO PEDIDO: "+totalOrderValue+" |";
     }
 
     public void clearCart() {

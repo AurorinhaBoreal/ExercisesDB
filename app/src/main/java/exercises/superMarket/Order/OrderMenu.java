@@ -29,12 +29,14 @@ public class OrderMenu {
                 orderMenu();
                 break;
             case 3:
-                
+                printOrder();
                 orderMenu();
                 break;
             case 4:
-                
+                // printTotalValue();
                 orderMenu();
+                break;
+            case 5:
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -66,4 +68,18 @@ public class OrderMenu {
 
         System.out.println(message);
     }
+
+    public void printOrder() {
+        String message;
+        message = Order.getOrder();
+
+        System.out.println(message);
+    }
+
+    // public void printTotalValue() {
+    //     String message;
+    //     message = Order.getTotalOrderValue();
+
+    //     System.out.println(message);
+    // }
 }
