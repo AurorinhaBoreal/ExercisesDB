@@ -52,7 +52,7 @@ public class Stock {
         System.out.println("Stock ID: "+id);
         System.out.println("|--------------------------------|");
         productsList.forEach((product) -> {
-            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" |");
+            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" | Estoque: "+product.getStock()+" |");
         });
         System.out.println("|--------------------------------|");
     }
