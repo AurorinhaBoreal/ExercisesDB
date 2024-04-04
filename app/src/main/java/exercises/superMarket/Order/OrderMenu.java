@@ -33,7 +33,7 @@ public class OrderMenu {
                 orderMenu();
                 break;
             case 4:
-                // printTotalValue();
+                printTotalValue();
                 orderMenu();
                 break;
             case 5:
@@ -76,10 +76,10 @@ public class OrderMenu {
         System.out.println(message);
     }
 
-    // public void printTotalValue() {
-    //     String message;
-    //     message = Order.getTotalOrderValue();
+    public void printTotalValue() {
+        String message;
+        message = Order.getTotalOrderValue();
 
-    //     System.out.println(message);
-    // }
+        System.out.println(message);
+    }
 }
