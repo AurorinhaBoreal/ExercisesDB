@@ -24,13 +24,13 @@ public class Order {
         return AddVerify;
     }
 
-    public String toString() {
-        itemList.forEach((item)-> {
-            System.out.println("| "+itemList.get(itemList.indexOf(item)).getItem()+" |");
-        });
-        System.out.println("| TOTAL: "+this.totalOrderValue+" |");
-        return "a";
-    };
+    // public String toString() {
+    //     itemList.forEach((item)-> {
+    //         System.out.println("| "+itemList.get(itemList.indexOf(item)).getItem()+" |");
+    //     });
+    //     System.out.println("| TOTAL: "+this.totalOrderValue+" |");
+    //     return "a";
+    // };
 
     public String getTotalOrderValue() {
         return "| "+this.totalOrderValue+" |";

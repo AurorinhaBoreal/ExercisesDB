@@ -25,7 +25,7 @@ public class OrderMenu {
                 orderMenu();
                 break;
             case 2:
-                // addItem();
+                addItem();
                 orderMenu();
                 break;
             case 3:
@@ -40,5 +40,30 @@ public class OrderMenu {
                 System.out.println("Opção Inválida");
                 orderMenu();
         }
+    }
+
+    public void addItem() {
+        int prodID;
+        Product prod;
+        int itemQtt;
+        double itemValue;
+        boolean addVerify;
+        System.out.println("Para adicionar o Item insira as informações:");
+        Stock.showStockCatalog();
+        System.out.println("Informe o ID do produto para ser inserido:");
+        prodID = scanner.nextInt();
+
+        prod = Stock.findProduct(prodID);
+
+        System.out.println("Informe a quantidade do item desejados:");
+        itemQtt = scanner.nextInt();
+
+        itemValue = prod.getPrice();
+
+        addVerify = Order.addItem(prod, itemQtt, itemValue);
+
+        String message = (addVerify == true ? "O item foi inserido no pedido" : "Algo deu errado, verifique as informações inseridas!");
+
+        System.out.println(message);
     }
 }
