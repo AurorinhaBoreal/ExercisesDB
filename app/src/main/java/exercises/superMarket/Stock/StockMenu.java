@@ -6,10 +6,6 @@ import exercises.superMarket.Product;
 
 public class StockMenu {
     Scanner scanner = new Scanner(System.in);
-    public void startStock() {
-        Stock.startStock();
-        stockMenu();
-    }
 
     public void stockMenu() {
         int stockAction;

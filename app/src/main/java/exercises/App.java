@@ -11,6 +11,7 @@ import exercises.methods.*;
 import exercises.oop.*;
 import exercises.repetitionStructures.*;
 import exercises.superMarket.*;
+import exercises.superMarket.Stock.Stock;
 
 public class App {
 
@@ -102,6 +103,7 @@ public class App {
                 phone.PopulateBook();
                 break;
             case 20:
+                Stock.startStock();
                 Menu supermarket = new Menu();
                 supermarket.menuController();
                 break;
