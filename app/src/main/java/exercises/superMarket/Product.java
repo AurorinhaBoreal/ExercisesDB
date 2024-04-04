@@ -14,7 +14,7 @@ public class Product {
     }
 
     public String getProduct() {
-        return " | "+this.id+" | "+this.name+" | "+this.price+" | "+this.stockQtt+" |"; 
+        return "| "+this.id+" | "+this.name+" | "+this.price+" | "+this.stockQtt+" |"; 
     }
 
     public void setId(int id) {

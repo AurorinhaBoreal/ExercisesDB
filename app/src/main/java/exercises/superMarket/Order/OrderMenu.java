@@ -11,9 +11,9 @@ public class OrderMenu {
     public void orderMenu() {
         int orderAction;
         System.out.println("Escolha a ação desejada:");
-        System.out.println("| 1 - Calcular Valor \t 2 - Adicionar Item \n"+
-        " 3 - Mostrar Pedido \t 4 - Mostrar Valor Total \n"+
-        " 5 - Limpar Carrinho \t 6 - Retornar ");
+        System.out.println("| 1 - Adicionar Item \t 2 - Mostrar Pedido \n"+
+        " 3 - Mostrar Valor Total \t 4 - Limpar Carrinho \n"+
+        " 5 - Retornar ");
         
         orderAction = scanner.nextInt();
 
@@ -23,25 +23,21 @@ public class OrderMenu {
     private void orderCase(int orderAction) {
         switch (orderAction) {
             case 1:
-                Order.calcTotalValue();
-                orderMenu();
-                break;
-            case 2:
                 addItem();
                 orderMenu();
                 break;
-            case 3:
+            case 2:
                 printOrder();
                 orderMenu();
                 break;
-            case 4:
+            case 3:
                 printTotalValue();
                 orderMenu();
                 break;
-            case 5:
+            case 4:
                 Order.clearCart();
                 orderMenu();
-            case 6:
+            case 5:
                 Menu menu = new Menu();
                 menu.menuController();
                 break;

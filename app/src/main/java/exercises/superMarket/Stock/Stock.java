@@ -48,11 +48,20 @@ public class Stock {
         return registerVerify;
     }
 
+    public static void showCatalog() {
+        System.out.println("Stock ID: "+id);
+        System.out.println("|-------------------------------------|");
+        productsList.forEach((product) -> {
+            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" | Preço: "+product.getPrice()+" |");
+        });
+        System.out.println("|-------------------------------------|");
+    }
+
     public static void showStockCatalog() {
         System.out.println("Stock ID: "+id);
         System.out.println("|--------------------------------|");
         productsList.forEach((product) -> {
-            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" | Estoque: "+product.getPrice()+" |");
+            System.out.println("| ID: "+product.getId()+" | Produto: "+product.getName()+" | Estoque: "+product.getStock()+" |");
         });
         System.out.println("|--------------------------------|");
     }

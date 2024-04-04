@@ -68,6 +68,7 @@ public class StockMenu {
 
         boolean isName = nameVerify(searchProduct);
 
+        System.out.println("|ID| Nome | Preço | Estoque |");
         if (isName == true) {
             nameProduct = searchProduct;
             System.out.println(Stock.findProduct(nameProduct).getProduct());
@@ -114,7 +115,7 @@ public class StockMenu {
     }
 
     private void showCatalog() {
-        Stock.showStockCatalog();
+        Stock.showCatalog();
     }
 
     private void stockUpdate() {
@@ -152,25 +153,26 @@ public class StockMenu {
         int prodId;
         Product prod;
         int prodStock;
-        Stock.showStockCatalog();
+        Stock.showCatalog();
         System.out.println("Informe o ID do Produto que deseja checar o Estoque:");
         prodId = scanner.nextInt();
 
         prod = Stock.findProduct(prodId);
         prodStock = Stock.stockLatestQtt(prod);
-
+        System.out.println("|--------------------------------|");
         System.out.println("| Produto: "+prod.getName()+" | Estoque: "+prodStock);
+        System.out.println("|--------------------------------|");
     }
 
     private void productPosition() {
         Product prod;
         String prodName;
-        Stock.showStockCatalog();
+        Stock.showCatalog();
         System.out.println("Informe o Nome do produto que você deseja ver a posição:");
         prodName = scanner.nextLine();
         prod = Stock.findProduct(prodName);
 
-        System.out.println("A posição do produto "+prod.getName()+" é: "+Stock.productsList.indexOf(prod));
+        System.out.println("\nA posição do produto "+prod.getName()+" é: "+Stock.productsList.indexOf(prod)+"\n");
 
     }
 }
