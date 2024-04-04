@@ -38,8 +38,8 @@ public class Order {
         return "| VALOR DO PEDIDO: "+totalOrderValue+" |";
     }
 
-    public void clearCart() {
+    public static void clearCart() {
         itemList.clear();
-        this.totalOrderValue = 0;
+        totalOrderValue = 0;
     }
 }

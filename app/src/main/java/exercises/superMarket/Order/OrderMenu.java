@@ -2,6 +2,7 @@ package exercises.superMarket.Order;
 
 import java.util.Scanner;
 
+import exercises.superMarket.Menu;
 import exercises.superMarket.Product;
 import exercises.superMarket.Stock.Stock;
 
@@ -11,7 +12,8 @@ public class OrderMenu {
         int orderAction;
         System.out.println("Escolha a ação desejada:");
         System.out.println("| 1 - Calcular Valor \t 2 - Adicionar Item \n"+
-        " 3 - Mostrar Pedido \t 4 - Mostrar Valor Total ");
+        " 3 - Mostrar Pedido \t 4 - Mostrar Valor Total \n"+
+        " 5 - Limpar Carrinho \t 6 - Retornar ");
         
         orderAction = scanner.nextInt();
 
@@ -37,7 +39,12 @@ public class OrderMenu {
                 orderMenu();
                 break;
             case 5:
-                break;
+                Order.clearCart();
+                orderMenu();
+            // case 6:
+            //     Menu menu = new Menu();
+            //     menu.menuController();
+            //     break;
             default:
                 System.out.println("Opção Inválida");
                 orderMenu();
