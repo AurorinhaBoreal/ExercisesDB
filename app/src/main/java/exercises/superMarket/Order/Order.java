@@ -6,18 +6,18 @@ import exercises.superMarket.Item;
 import exercises.superMarket.Product;
 
 public class Order {
-    private ArrayList<Item> itemList = new ArrayList<>();
-    private double totalOrderValue = 0;
+    static private ArrayList<Item> itemList = new ArrayList<>();
+    static private double totalOrderValue = 0;
 
-    public void calcTotalValue() {
+    public static void calcTotalValue() {
         double calcOrderValue[] = {0};
         itemList.forEach((item) -> {
             calcOrderValue[0] += itemList.get(itemList.indexOf(item)).totalValue();
         });
-        this.totalOrderValue = calcOrderValue[0];
+        totalOrderValue = calcOrderValue[0];
     }
 
-    public boolean addItem(Product product, int qtt, double itemValue) {
+    public static boolean addItem(Product product, int qtt, double itemValue) {
         boolean AddVerify;
         if (itemList.add(new Item(product, qtt, itemValue))) AddVerify = true;
         else AddVerify = false;
