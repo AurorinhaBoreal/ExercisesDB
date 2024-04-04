@@ -117,27 +117,34 @@ public class StockMenu {
     }
 
     private void stockUpdate() {
-        String prod;
+        Product product;
+        String prodTemp;
         String prodName;
         int prodId;
         int qttUpdate;
         Stock.showStockCatalog();
         System.out.println("Informe o Nome ou ID do produto que deseja atualizar o estoque:");
-        prod = scanner.nextLine();
+        prodTemp = scanner.nextLine();
         System.out.println("Informe a quantidade de items que quer adicionar ou quer remover:");
         qttUpdate = scanner.nextInt();
         scanner.nextLine();
         // Captura a linha
 
-        boolean isName = nameVerify(prod);
+        boolean isName = nameVerify(prodTemp);
 
         if (isName == true) {
-            prodName = prod;
-            Stock.updateStock(prodName, qttUpdate);
+            prodName = prodTemp;
+            product = Stock.findProduct(prodName);
         } else {
-            prodId = Integer.valueOf(prod);
-            Stock.updateStock(prodId, qttUpdate);
+            prodId = Integer.valueOf(prodTemp);
+            product = Stock.findProduct(prodId);
         }
+
+        boolean updateVerify = Stock.hasStock(product, qttUpdate);
+
+        String statusMessage = (updateVerify == true ? "O estoque foi atualizado" : "Verifique o estoque do produto e tente novamente!");
+
+        System.out.println(statusMessage);
     }
 
     private void getProductStock() {

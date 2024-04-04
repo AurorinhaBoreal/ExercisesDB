@@ -106,14 +106,13 @@ public class Stock {
         return prodIndex;
     }
 
-    public boolean hasStock(Product product, int qtt) {
+    public static boolean hasStock(Product product, int qtt) {
         boolean stockVerify;
-        int prodIndex;
-        prodIndex = productsList.indexOf(product);
+        int prodQtt = product.getStock();
 
-        if (productsList.get(prodIndex).getStock() <= qtt) stockVerify = false;
+        if ((prodQtt + qtt < 0)) stockVerify = false;
         else {
-            productsList.get(prodIndex).stockUpdate(qtt);
+            productsList.get(productsList.indexOf(product)).stockUpdate(qtt);
             stockVerify = true;
         }
 
@@ -121,7 +120,7 @@ public class Stock {
     }
 
     public void getStock() {
-        System.out.println("ID do Estoque: "+this.id);
+        System.out.println("ID do Estoque: "+id);
         productsList.forEach((prod) -> {
             System.out.println(productsList.get(productsList.indexOf(prod)).getProduct());
         });
