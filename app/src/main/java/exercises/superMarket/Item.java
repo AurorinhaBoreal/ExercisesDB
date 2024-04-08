@@ -20,12 +20,13 @@ public class Item {
     }
 
     public String getItem() {
-        itemValue = this.qtt * this.itemValue;
-        return String.format("| %s | %d | %.2f |", this.product.getName(), this.qtt, itemValue);
+        double totalValue;
+        totalValue = this.qtt * this.itemValue;
+        return String.format("| %s | %d | %.2f |", this.product.getName(), this.qtt, totalValue);
     }
 
     public double totalValue() {
-        int totalValue[] = {0};
+        double totalValue[] = {0};
         Order.itemList.forEach((item) -> {
             totalValue[0] += item.itemValue;
         });
@@ -34,5 +35,13 @@ public class Item {
 
     public void changeQtt(int qtt) {
         this.qtt = qtt;
+    }
+
+    public int getQtt() {
+        return qtt;
+    }
+
+    public double getPrice() {
+        return product.getPrice();
     }
 }
