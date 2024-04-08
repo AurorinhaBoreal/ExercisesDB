@@ -37,6 +37,11 @@ public class Item {
         this.qtt = qtt;
     }
 
+    
+    public int getId() {
+        return product.getId();
+    }
+    
     public int getQtt() {
         return qtt;
     }
