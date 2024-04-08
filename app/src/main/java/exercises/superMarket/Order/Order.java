@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import exercises.superMarket.Item;
 import exercises.superMarket.Product;
+import exercises.superMarket.Stock.Stock;
 
 public class Order {
     static public ArrayList<Item> itemList = new ArrayList<>();
@@ -31,7 +32,6 @@ public class Order {
             int i = 0;
             while (itemAddedIndex[0] == -1) {
                 itemAddedIndex[0] = itemList.indexOf(itemList.get(i));
-                System.out.println(itemAddedIndex[0]);
                 i++;
             }
             actualItemQtt = itemList.get(itemAddedIndex[0]).getQtt();
@@ -56,11 +56,20 @@ public class Order {
     };
 
     public static String showTotalOrderValue() {
-        return "| VALOR DO PEDIDO: "+totalOrderValue+" |";
+        return String.format("| VALOR DO PEDIDO: %.2f |", totalOrderValue);
     }
 
     public static void clearCart() {
         itemList.clear();
         totalOrderValue = 0;
+    }
+
+    public static void stockRemoval() {
+        itemList.forEach((item) -> {
+            int itemIndex = itemList.indexOf(item);
+            int itemId = itemList.get(itemIndex).getId();
+            int itemQtt = -itemList.get(itemIndex).getQtt();
+            Stock.updateStock(itemId, itemQtt);
+        });
     }
 }

@@ -57,7 +57,7 @@ public class OrderMenu {
         double itemValue;
         boolean addVerify;
         System.out.println("Para adicionar o Item insira as informações:");
-        Stock.showStockCatalog();
+        Stock.showCatalog();
         System.out.println("Informe o ID do produto para ser inserido:");
         prodID = scanner.nextInt();
 
@@ -92,8 +92,7 @@ public class OrderMenu {
     private void closeOrder() {
         int userAnswer;
         double payment;
-        double change = 666;
-        String paymentStatus = "O seu pagamento não foi efetuado! Tente novamente!";
+        double change = 666; // ₒ ₜᵣₒ𝒸ₒ ₘₐₗᵢ𝓰ₙₒ
         System.out.println("Seu pedido atual é: \n");
         printOrder();
         System.out.println("\nDeseja fechar o pedido e proceder para o pagamento? \n1 - Sim | 2 - Não");
@@ -103,23 +102,28 @@ public class OrderMenu {
         if (userAnswer == 1) {
             System.out.println("Certo! Informe quanto irá entregar em dinheiro:");
             payment = scanner.nextDouble();
-            paymentStatus = paymentProcess(payment, change);
+            paymentProcess(payment, change);
         } else {
             System.out.println("Okkay.");
         }
     }
 
-    public String paymentProcess(double payment, double change) {
+    public void paymentProcess(double payment, double change) {
         String[] possibleStatus = {"Dinheiro entregue insuficiente. Passa mais ai!", "Pagamento efetuado com sucesso!"};
         String paymentStatus;
         double totalPrice = Order.showTotalValue();
 
         if (payment < totalPrice) paymentStatus = possibleStatus[0];
-        else {
-            change = payment - totalPrice;
-            System.out.println("O seu troco vai ser de: "+change);
+        else if (payment == totalPrice) {
+            System.out.println("Você não deu dinheiro a mais! Por isso, sem troco!");
             paymentStatus = possibleStatus[1];
+        } else {
+            change = (payment - totalPrice);
+            System.out.println(String.format("O seu troco vai ser de: %.2f", change));
+            paymentStatus = possibleStatus[1];
+            Order.stockRemoval();
+            Order.clearCart();
         }
-        return paymentStatus;
+        System.out.println(paymentStatus);
     }
 }
