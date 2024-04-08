@@ -12,8 +12,8 @@ public class OrderMenu {
         int orderAction;
         System.out.println("Escolha a ação desejada:");
         System.out.println("| 1 - Adicionar Item \t 2 - Mostrar Pedido \n"+
-        " 3 - Mostrar Valor Total \t 4 - Limpar Carrinho \n"+
-        " 5 - Retornar ");
+        " 3 - Mostrar Valor Total \t 4 - Fechar Pedido \n"+
+        " 5 - Limpar Carrinho \t 6 - Retornar ");
         
         orderAction = scanner.nextInt();
 
@@ -35,9 +35,12 @@ public class OrderMenu {
                 orderMenu();
                 break;
             case 4:
-                Order.clearCart();
+                closeOrder();
                 orderMenu();
             case 5:
+                Order.clearCart();
+                orderMenu();
+            case 6:
                 Menu menu = new Menu();
                 menu.menuController();
                 break;
@@ -47,7 +50,7 @@ public class OrderMenu {
         }
     }
 
-    public void addItem() {
+    private void addItem() {
         int prodID;
         Product prod;
         int itemQtt;
@@ -72,17 +75,51 @@ public class OrderMenu {
         System.out.println(message);
     }
 
-    public void printOrder() {
+    private void printOrder() {
         String message;
         message = Order.getOrder();
 
         System.out.println(message);
     }
 
-    public void printTotalValue() {
+    private void printTotalValue() {
         String message;
-        message = Order.getTotalOrderValue();
+        message = Order.showTotalOrderValue();
 
         System.out.println(message);
+    }
+
+    private void closeOrder() {
+        int userAnswer;
+        double payment;
+        double change = 666;
+        String paymentStatus = "O seu pagamento não foi efetuado! Tente novamente!";
+        System.out.println("Seu pedido atual é: \n");
+        printOrder();
+        System.out.println("\nDeseja fechar o pedido e proceder para o pagamento? \n1 - Sim | 2 - Não");
+
+        userAnswer = scanner.nextInt();
+
+        if (userAnswer == 1) {
+            System.out.println("Certo! Informe quanto irá entregar em dinheiro:");
+            payment = scanner.nextDouble();
+            paymentStatus = paymentProcess(payment, change);
+        } else {
+            System.out.println("Okkay.");
+        }
+    }
+
+    public String paymentProcess(double payment, double change) {
+        String[] possibleStatus = {"Dinheiro entregue insuficiente. Passa mais ai!", "Pagamento efetuado com sucesso!"};
+        String paymentStatus;
+        double totalPrice = Order.showTotalValue();
+
+        if (payment < totalPrice) paymentStatus = possibleStatus[0];
+        else {
+            change = payment - totalPrice;
+            System.out.println("O seu troco vai ser de: "+change);
+            paymentStatus = possibleStatus[1];
+        }
+        return paymentStatus;
     }
 }
